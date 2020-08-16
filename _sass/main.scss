@@ -1,3 +1,60 @@
-.current {
-  color: green;
+html, body {
+  height: 100%;
+  margin: 0px 20px 0px 20px;
 }
+
+body {  
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.wrapper {
+  width: 1240px;
+  float: left;
+  padding: 0px 0px 0px 20px;
+  margin: 0px;
+  border: 0px solid #000000;
+  height: 100%;
+  margin: 0px;
+}
+
+section {
+  width: 900px;
+  padding: 10px 0px 0px 60px;
+  float: right;
+  font-size: larger;
+  margin: 0px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+}
+
+aside {
+  width: 240px;
+  height: 100%;
+  padding: 10px 0px 0px 0px;
+  font-size: larger;
+  border-right: 1px solid gray;
+  margin: 0px;
+}
+  
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+aside a.current {
+  font-weight: bold;
+}
+
+aside ul {
+  list-style: none;
+  padding: 50px 0px 0px 10px;
+}
+
+aside li {
+  padding: 0px 0px 5px 0px;
+}
+

@@ -1,12 +1,19 @@
 <!doctype html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-	<link rel="stylesheet" href="/assets/css/styles.css">
+	  <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
+
   <body>
-	{% include navigation.html %}
-    {{ content }}
+    <div class="wrapper">
+      <section>
+        {{ content }}
+      </section>
+      {% include aside.html %}
+    </div>
   </body>
+
 </html>
