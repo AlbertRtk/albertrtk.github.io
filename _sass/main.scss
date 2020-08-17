@@ -10,7 +10,7 @@ body {
 .wrapper {
   width: 1240px;
   float: left;
-  padding: 0px 0px 0px 20px;
+  padding: 0px 20px 0px 20px;
   margin: 0px;
   border: 0px solid #000000;
   height: 100%;
@@ -31,20 +31,54 @@ p.post_date {
   margin: 0px;
 }
 
+p.post_date_small {
+  font-size: xx-small;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+}
+
 p.post_title {
   font-size: xx-large;
   padding: 0px 0px 0px 0px;
   margin: 0px;
 }
 
-ul.home {
-  list-style: none;
+p.post_title_small {
   padding: 0px 0px 0px 0px;
   margin: 0px;
 }
 
+ul.home {
+  list-style: none;
+  padding: 80px 0px 20px 0px;
+  margin: 0px;
+}
+
 li.home {
-  padding: 50px 0px 0px 0px;
+  padding: 0px 0px 50px 0px;
+}
+
+ul.blog {
+  list-style: none;
+  padding: 20px 0px 20px 0px;
+  margin: 0px;
+}
+
+li.blog {
+  padding: 0px 0px 20px 0px;
+}
+
+table {
+  min-width: 480px;
+}
+
+tr.blog {
+  vertical-align: top;
+  padding: 10px 0px 0px 0px;
+}
+
+td.blog_post_date {
+  width: 70px;
 }
 
 aside {

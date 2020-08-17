@@ -15,5 +15,10 @@ title: Home
         
         {{ post.excerpt }}
       </li>
+
+      {% if 3 == forloop.index %}
+        {% break %}
+      {% endif %}
+
     {% endfor %}
 </ul>
