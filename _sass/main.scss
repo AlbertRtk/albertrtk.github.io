@@ -31,6 +31,12 @@ p.post_date {
   margin: 0px;
 }
 
+p.post_date_large {
+  font-size: small;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+}
+
 p.post_date_small {
   font-size: xx-small;
   padding: 0px 0px 0px 0px;
@@ -39,11 +45,18 @@ p.post_date_small {
 
 p.post_title {
   font-size: xx-large;
+  font-weight: bold;
   padding: 0px 0px 0px 0px;
   margin: 0px;
 }
 
 p.post_title_small {
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+}
+
+p.read_more {
+  font-size: small;
   padding: 0px 0px 0px 0px;
   margin: 0px;
 }
@@ -55,7 +68,7 @@ ul.home {
 }
 
 li.home {
-  padding: 0px 0px 50px 0px;
+  padding: 0px 0px 70px 0px;
 }
 
 ul.blog {
@@ -81,6 +94,11 @@ td.blog_post_date {
   width: 70px;
 }
 
+hr.under_post {
+  width: 200px;
+  float: left;
+}
+
 aside {
   width: 240px;
   height: 100%;
@@ -102,6 +120,10 @@ a {
 
 aside a.current {
   font-weight: bold;
+}
+
+a.black_link {
+  color: black;
 }
 
 aside ul {

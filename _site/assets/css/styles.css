@@ -8,15 +8,19 @@ section { width: 900px; padding: 10px 0px 0px 60px; float: right; font-size: lar
 
 p.post_date { font-size: x-small; padding: 0px 0px 0px 0px; margin: 0px; }
 
+p.post_date_large { font-size: small; padding: 0px 0px 0px 0px; margin: 0px; }
+
 p.post_date_small { font-size: xx-small; padding: 0px 0px 0px 0px; margin: 0px; }
 
-p.post_title { font-size: xx-large; padding: 0px 0px 0px 0px; margin: 0px; }
+p.post_title { font-size: xx-large; font-weight: bold; padding: 0px 0px 0px 0px; margin: 0px; }
 
 p.post_title_small { padding: 0px 0px 0px 0px; margin: 0px; }
 
+p.read_more { font-size: small; padding: 0px 0px 0px 0px; margin: 0px; }
+
 ul.home { list-style: none; padding: 80px 0px 20px 0px; margin: 0px; }
 
-li.home { padding: 0px 0px 50px 0px; }
+li.home { padding: 0px 0px 70px 0px; }
 
 ul.blog { list-style: none; padding: 20px 0px 20px 0px; margin: 0px; }
 
@@ -28,6 +32,8 @@ tr.blog { vertical-align: top; padding: 10px 0px 0px 0px; }
 
 td.blog_post_date { width: 70px; }
 
+hr.under_post { width: 200px; float: left; }
+
 aside { width: 240px; height: 100%; padding: 10px 0px 0px 0px; font-size: larger; border-right: 1px solid gray; margin: 0px; position: relative; }
 
 aside img.avatar { width: 200px; }
@@ -35,6 +41,8 @@ aside img.avatar { width: 200px; }
 a { color: blue; text-decoration: none; }
 
 aside a.current { font-weight: bold; }
+
+a.black_link { color: black; }
 
 aside ul { list-style: none; padding: 50px 0px 0px 30px; }
 
