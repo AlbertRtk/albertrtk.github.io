@@ -25,10 +25,26 @@ section {
   margin: 0px;
 }
 
-ul {
+p.post_date {
+  font-size: x-small;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+}
+
+p.post_title {
+  font-size: xx-large;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+}
+
+ul.home {
   list-style: none;
   padding: 0px 0px 0px 0px;
   margin: 0px;
+}
+
+li.home {
+  padding: 50px 0px 0px 0px;
 }
 
 aside {

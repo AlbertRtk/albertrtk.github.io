@@ -6,7 +6,13 @@ body { font-family: Arial, Verdana, sans-serif; }
 
 section { width: 900px; padding: 10px 0px 0px 60px; float: right; font-size: larger; margin: 0px; }
 
-ul { list-style: none; padding: 0px 0px 0px 0px; margin: 0px; }
+p.post_date { font-size: x-small; padding: 0px 0px 0px 0px; margin: 0px; }
+
+p.post_title { font-size: xx-large; padding: 0px 0px 0px 0px; margin: 0px; }
+
+ul.home { list-style: none; padding: 0px 0px 0px 0px; margin: 0px; }
+
+li.home { padding: 50px 0px 0px 0px; }
 
 aside { width: 240px; height: 100%; padding: 10px 0px 0px 0px; font-size: larger; border-right: 1px solid gray; margin: 0px; position: relative; }
 
