@@ -38,6 +38,11 @@ aside {
   font-size: larger;
   border-right: 1px solid gray;
   margin: 0px;
+  position: relative;
+}
+
+aside img.avatar {
+  width: 200px;
 }
   
 a {
@@ -51,10 +56,16 @@ aside a.current {
 
 aside ul {
   list-style: none;
-  padding: 50px 0px 0px 10px;
+  padding: 50px 0px 0px 30px;
 }
 
 aside li {
   padding: 0px 0px 5px 0px;
+}
+
+aside p.copyright {
+  font-size: small;
+  position: absolute;
+  bottom: 0px;
 }
 
