@@ -1,12 +1,15 @@
 <aside>
-  <h1>AlbertRtk</h1>
-  <img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
-    <ul>
-      {% for item in site.data.aside %}
-        <li>
-          <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-    <p class="copyright">&copy; 2020 Albert Ratajczak<p></p>
+  <h1>{{ site.title }}</h1>
+
+  <img src="{{ site.avatar }}" alt="Avatar" class="avatar">
+    
+  <ul>
+    {% for item in site.data.aside %}
+      <li>
+        <a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>{{ item.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="copyright">&copy; 2020 Albert Ratajczak<p></p>
 </aside>
