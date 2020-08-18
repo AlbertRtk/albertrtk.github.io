@@ -15,3 +15,9 @@ layout: default
     - <a href="{{ author.url }}">{{ author.name }}</a>
   {% endif %}
 </p>
+
+{% if page.next %}
+  <p class="under_post"> 
+    Next post: <a href="{{ page.next.url }}">{{ page.next.title }}</a>
+  </p>
+{% endif %}
