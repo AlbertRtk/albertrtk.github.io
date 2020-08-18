@@ -4,23 +4,27 @@ title: Home
 
 <ul class="home">
     {% for post in site.posts %}
-      <li class="home">
-        <p class="post_title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
+      {% unless post.categories contains "handbook" %}
+      
+        <li class="home">
+          <p class="post_title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
 
-        
-        <p class="post_date">
-          {% assign author = site.authors | where: 'short_name', post.author | first %}
-          {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
-        </p>
-        {{ post.excerpt }} 
-        <p class="read_more">
-          <a href="{{ post.url }}">Read more >></a>
-        </p>
-      </li>
+          <p class="post_date">
+            {% assign author = site.authors | where: 'short_name', post.author | first %}
+            {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
+          </p>
 
-      {% if 3 == forloop.index %}
-        {% break %}
-      {% endif %}
+          {{ post.excerpt }} 
+          
+          <p class="read_more">
+            <a href="{{ post.url }}">Read more >></a>
+          </p>
+        </li>
 
+        {% if 3 == forloop.index %}
+          {% break %}
+        {% endif %}
+
+      {% endunless %}
     {% endfor %}
 </ul>

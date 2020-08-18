@@ -1,0 +1,27 @@
+---
+title: Handbook
+---
+<h1>Handbook</h1>
+
+{% assign sections = site.sections | remove: " " | split: "," %}
+
+{% for section in sections %}
+  
+  <h3>{{ section }}</h3>
+
+  <ol>
+    {% for note in site.handbook %}
+
+      {% if note.section contains section %}  
+        <li>
+          <p class="post_title_small"><a href="{{ note.url }}">{{ note.title }}</a></p>
+        </li>
+      {% endif %}
+
+    {% endfor %}
+  </ol>
+
+  <br />
+
+{% endfor %}
+
