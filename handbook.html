@@ -10,11 +10,11 @@ title: Handbook
   <h3>{{ section }}</h3>
 
   <ol>
-    {% for note in site.handbook %}
+    {% for post in site.handbook %}
 
-      {% if note.section contains section %}  
+      {% if post.section contains section %}  
         <li>
-          <p class="post_title_small"><a href="{{ note.url }}">{{ note.title }}</a></p>
+          <p class="post_title_small"><a href="{{ post.url }}">{{ post.title }}</a></p>
         </li>
       {% endif %}
 
