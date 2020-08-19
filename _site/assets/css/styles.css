@@ -36,7 +36,7 @@ td.blog_post_date { width: 70px; }
 
 hr.under_post { width: 200px; float: left; }
 
-aside { width: 240px; height: 100%; padding: 10px 0px 0px 0px; font-size: larger; border-right: 1px solid gray; margin: 0px; position: relative; }
+aside { width: 240px; height: 100%; padding: 10px 0px 0px 0px; font-size: larger; border-right: 1px solid gray; margin: 0px; position: fixed; }
 
 aside img.avatar { width: 200px; }
 
