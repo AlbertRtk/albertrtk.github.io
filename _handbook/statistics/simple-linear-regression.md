@@ -1,7 +1,7 @@
 ---
 section: Statistics
 ---
-For a given set of *n* data pairs *(x<sub>i</sub>, y<sub>i</sub>)*, the line of best fit is given by equation
+For a given set of *n* data pairs *(x<sub>i</sub>, y<sub>i</sub>)*, the line of best fit is given by the equation
 
 ![a](/assets/images/handbook/statistics/simple_linear_equation.gif),
 
@@ -20,7 +20,7 @@ The goodness of fit is given by the coefficient of determination *R<sup>2</sup>*
 
 ![R squared](/assets/images/handbook/statistics/simple_linear_regression_r2.gif)
 
-where *SS<sub>res</sub>* is the residual sum of squares - sum of squared errors between actual and predicted with linear regression  *y* values
+where *SS<sub>res</sub>* is the residual sum of squares - the sum of squared errors between actual and predicted with linear regression  *y* values
 
 ![R squared](/assets/images/handbook/statistics/simple_linear_regression_ss_res.gif)
 
