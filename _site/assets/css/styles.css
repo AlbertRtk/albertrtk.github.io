@@ -2,9 +2,9 @@ html, body { height: 100%; margin: 0px 20px 0px 20px; }
 
 body { font-family: Arial, Verdana, sans-serif; }
 
-.wrapper { width: 1240px; float: left; padding: 0px 20px 0px 20px; margin: 0px; border: 0px solid #000000; height: 100%; margin: 0px; }
+.wrapper { width: 980px; float: left; padding: 0px 20px 0px 20px; margin: 0px; border: 0px solid #000000; height: 100%; margin: 0px; }
 
-section { width: 900px; padding: 10px 0px 0px 60px; float: right; font-size: larger; margin: 0px; }
+section { width: 600px; padding: 10px 0px 0px 100px; float: right; font-size: larger; margin: 0px; }
 
 p.post_date { font-size: x-small; padding: 0px 0px 0px 0px; margin: 0px; }
 
