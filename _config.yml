@@ -4,10 +4,9 @@ avatar: /assets/images/avatar.jpg
 # comma separated titles of sections 
 sections: Statistics
 
+
 collections:
   authors:
-    output: true
-  handbook:
     output: true
 
 defaults:
@@ -17,17 +16,21 @@ defaults:
     values:
       layout: "author"
   - scope:
-      path: ""
+      path: "_posts/blog"
       type: "posts"
     values:
       layout: "post"
       excerpt_separator: <!--more-->
   - scope:
-      path: ""
-      type: "handbook"
+      path: "_posts/handbook"
+      type: "posts"
     values:
-      layout: "handbookpage"
+      layout: "post"
+      category: handbook
+      excerpt_separator: <!--more-->
+      permalink: /:categories/:title/
   - scope:
       path: ""
     values:
       layout: "default"
+      

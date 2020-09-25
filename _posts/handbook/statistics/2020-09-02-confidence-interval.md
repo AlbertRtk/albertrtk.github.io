@@ -1,6 +1,7 @@
 ---
-section: Statistics
+author: albert
 ---
+<!--more-->
 ### Confidence interval:
 ![Z-score](/assets/images/handbook/statistics/confidence_interval.gif)
 
