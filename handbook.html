@@ -3,25 +3,18 @@ title: Handbook
 ---
 <h1>Handbook</h1>
 
-{% assign sections = site.sections | remove: " " | split: "," %}
+{% assign sortedPosts = site.posts | sort: 'title' %}
 
-{% for section in sections %}
-  
-  <h3>{{ section }}</h3>
+<ol>
+  {% for post in sortedPosts %}
 
-  <ol>
-    {% for post in site.handbook %}
+    {% if post.categories contains "Handbook" %}  
+      <li>
+        <p class="post_title_small"><a href="{{ post.url }}">{{ post.title }}</a></p>
+      </li>
+    {% endif %}
 
-      {% if post.section contains section %}  
-        <li>
-          <p class="post_title_small"><a href="{{ post.url }}">{{ post.title }}</a></p>
-        </li>
-      {% endif %}
+  {% endfor %}
+</ol>
 
-    {% endfor %}
-  </ol>
-
-  <br />
-
-{% endfor %}
-
+<br />

@@ -1,6 +1,7 @@
 ---
-section: Statistics
+author: albert
 ---
+<!--more-->
 For a given set of *n* data pairs *(x<sub>i</sub>, y<sub>i</sub>)*, the line of best fit is given by the equation
 
 ![a](/assets/images/handbook/statistics/simple_linear_equation.gif),
