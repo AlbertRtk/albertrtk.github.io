@@ -1,6 +1,8 @@
 title: AR. Data Rules
 avatar: /assets/images/avatar.jpg
 
+highlighter: rouge
+
 collections:
   authors:
     output: true
