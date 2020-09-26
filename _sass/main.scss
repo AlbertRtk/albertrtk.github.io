@@ -8,7 +8,7 @@ body {
 }
 
 .wrapper {
-  width: 1240px;
+  width: 980px;
   float: left;
   padding: 0px 20px 0px 20px;
   margin: 0px;
@@ -18,8 +18,8 @@ body {
 }
 
 section {
-  width: 900px;
-  padding: 10px 0px 0px 60px;
+  width: 600px;
+  padding: 10px 0px 0px 100px;
   float: right;
   font-size: larger;
   margin: 0px;
@@ -67,6 +67,10 @@ p.under_post {
   margin: 40px 0px 20px 0px;
 }
 
+li {
+  padding: 0px 0px 5px 0px;
+}
+
 ul.home {
   list-style: none;
   padding: 80px 0px 20px 0px;
@@ -112,7 +116,7 @@ aside {
   font-size: larger;
   border-right: 1px solid gray;
   margin: 0px;
-  position: relative;
+  position: fixed;
 }
 
 aside img.avatar {
