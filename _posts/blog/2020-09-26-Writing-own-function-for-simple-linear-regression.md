@@ -2,13 +2,12 @@
 author: albert
 tag: linear regression
 ---
-Having a set of data pairs (*x, y*), where *y* shows linear dependence on *x*, the line of best fit can be found with 
-[simple linear regression]({% link _posts/handbook/statistics/2020-09-16-simple-linear-regression.md %}) model. In this post, I present Pyhton code solving the problem of simple linear regression.
+Having a set of data pairs (*x, y*), where *y* shows a linear dependence on *x*, the line of best fit can be found with the [simple linear regression]({% link _posts/handbook/statistics/2020-09-16-simple-linear-regression.md %}) model. In this post, I present Pyhton code solving the problem of simple linear regression.
 <!--more-->
 
-# Imports and data preparation
+## Imports and data preparation
 
-First, let's import stuff. Numpy for arangement and easy processing of numerical data, Matplotlib for visualization, and in the and stats modul from Scipy to test if implemented solution works properly.
+First, let's import stuff. Numpy for arrangement and easy processing of numerical data, Matplotlib for visualization, and in the and stats module from Scipy to test if the implemented solution works properly.
 
 
 ```python
@@ -17,7 +16,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 ```
 
-Now, we can arrange an array of independent variable *X*, and calculate values of dependent variable *Y*, assuming some linear dependence. We don't want to get straght line, so a bit of noise is introduced onto *Y*.
+Now, we can arrange an array of independent variable *X*, and calculate values of dependent variable *Y*, assuming some linear dependence. We don't want to get straight line, so a bit of noise is introduced onto *Y*.
 
 
 ```python
@@ -39,15 +38,15 @@ _ = plt.ylabel('Y')
 ![png](/assets/images/blog/2020-09-26/raw_data.png)
 
 
-Looks fine. There is clearly linear dependence, however points don't create straight line (due to introduced noise).
+Looks fine. There is clearly linear dependence, however points don't create a straight line (due to introduced noise).
 
-# Writing the algorithm
+## Writing the algorithm
 
 The slope for the line of best fit is given with equation
 
 ![a](/assets/images/handbook/statistics/simple_linear_regression_a.gif)
 
-Below function will calculate the value of *a*.
+The below function will calculate the value of *a*.
 
 
 ```python
@@ -77,7 +76,7 @@ def get_intercept(x, y, slope):
     return y.mean() - slope * x.mean()
 ```
 
-Next three functions are used to calculate the coefficient of determination *R<sup>2</sup>*.
+The next three functions are used to calculate the coefficient of determination *R<sup>2</sup>*.
 
 
 ```python
@@ -95,7 +94,7 @@ def get_r_squared(y, y_fit):
     return (1 - ss_res / ss_tot)
 ```
 
-Finally, we can put everthing together and close it in one function ```linear_regression```. The function will return the dictionary with short summary (containing the value of slope, intercept, and R-squared) and set of Numpy arrays with the result of fitting.
+Finally, we can put everything together and close it in one function ```linear_regression```. The function will return the dictionary with short summary (containing the value of the slope, intercept, and R-squared) and set of Numpy arrays with the result of the fitting.
 
 
 ```python
@@ -112,9 +111,9 @@ def linear_regression(x, y):
     return summary, (x, y_fit)
 ```
 
-# Running the algoritm
+## Running the algoritm
 
-Let's see if implemented code works.
+Let's see if the implemented code works.
 
 
 ```python
@@ -148,9 +147,9 @@ _ = plt.ylabel('Y')
 
 Looks really good :-)
 
-# Finall test
+## Finall test
 
-We can use ```scipy.stats``` to do linear regression on the same set of data and compare the result with result recieved with implemented model. This will be the fiall check if everthing is correct.
+We can use ```scipy.stats``` to do linear regression on the same set of data and compare the result with the result received with the implemented model. This will be the final check if everything is correct.
 
 
 ```python
@@ -159,7 +158,7 @@ r_squared = r_value ** 2
 summary_stats = {'Slope': slope, 'Intercept': intercept, 'R-squared': r_squared}
 ```
 
-Let's put evething to Pandas DataFrame, so it is easier to compare the results.
+Let's put everything  to Pandas DataFrame, so it is easier to compare the results.
 
 
 ```python
@@ -196,7 +195,7 @@ pd.DataFrame(data=[summary, summary_stats], index=['My model', 'Scipy model'])
   </thead>
   <tbody>
     <tr>
-      <th>My model</th>
+      <th>Implemented model</th>
       <td>2.959611</td>
       <td>13.001211</td>
       <td>0.95291</td>
