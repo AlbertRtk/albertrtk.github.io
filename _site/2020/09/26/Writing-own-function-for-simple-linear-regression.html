@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Writing Own Function For Simple Linear Regression - AR. Data Rules</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <section>
+        <h1>
+  Writing Own Function For Simple Linear Regression
+</h1>
+
+<p>Having a set of data pairs (<em>x, y</em>), where <em>y</em> shows a linear dependence on <em>x</em>, the line of best fit can be found with the <a href="/handbook/simple-linear-regression.html">simple linear regression</a> model. In this post, I present Pyhton code solving the problem of simple linear regression.
+<!--more--></p>
+
+<h2 id="imports-and-data-preparation">Imports and data preparation</h2>
+
+<p>First, let’s import stuff. Numpy for arrangement and easy processing of numerical data, Matplotlib for visualization, and in the and stats module from Scipy to test if the implemented solution works properly.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</code></pre></div></div>
+
+<p>Now, we can arrange an array of independent variable <em>X</em>, and calculate values of dependent variable <em>Y</em>, assuming some linear dependence. We don’t want to get straight line, so a bit of noise is introduced onto <em>Y</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">X</span><span class="o">+</span><span class="mi">14</span><span class="p">)</span> <span class="o">+</span> <span class="n">noise</span>
+</code></pre></div></div>
+
+<p>Time to see what we’ve got.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'X'</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Y'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/blog/2020-09-26/raw_data.png" alt="png" /></p>
+
+<p>Looks fine. There is clearly linear dependence, however points don’t create a straight line (due to introduced noise).</p>
+
+<h2 id="writing-the-algorithm">Writing the algorithm</h2>
+
+<p>The slope for the line of best fit is given with equation</p>
+
+<p><img src="/assets/images/handbook/statistics/simple_linear_regression_a.gif" alt="a" /></p>
+
+<p>The below function will calculate the value of <em>a</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_slope</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">xy</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+    
+    <span class="n">sum_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+    <span class="n">sum_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+    <span class="n">sum_xy</span> <span class="o">=</span> <span class="n">xy</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+    <span class="n">sum_xx</span> <span class="o">=</span> <span class="n">xx</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+    <span class="n">sum_x_sq</span> <span class="o">=</span> <span class="n">sum_x</span> <span class="o">*</span> <span class="n">sum_x</span>
+    
+    <span class="n">a_output</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">sum_xy</span> <span class="o">-</span> <span class="n">sum_x</span> <span class="o">*</span> <span class="n">sum_y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">sum_xx</span> <span class="o">-</span> <span class="n">sum_x_sq</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">a_output</span>
+</code></pre></div></div>
+
+<p>The value of <em>b</em> can be calculated using the slope, which is the output of function <code class="language-plaintext highlighter-rouge">get_slope</code></p>
+
+<p><img src="/assets/images/handbook/statistics/simple_linear_regression_b_by_means.gif" alt="b" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_intercept</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">slope</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">y</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The next three functions are used to calculate the coefficient of determination <em>R<sup>2</sup></em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_residual_sum_of_squares</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">):</span>
+    <span class="n">squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_fit</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">squares</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_total_sum_of_squares</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="p">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">squares</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_r_squared</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">):</span>
+    <span class="n">ss_res</span> <span class="o">=</span> <span class="n">get_residual_sum_of_squares</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">)</span>
+    <span class="n">ss_tot</span> <span class="o">=</span> <span class="n">get_total_sum_of_squares</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ss_res</span> <span class="o">/</span> <span class="n">ss_tot</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Finally, we can put everything together and close it in one function <code class="language-plaintext highlighter-rouge">linear_regression</code>. The function will return the dictionary with short summary (containing the value of the slope, intercept, and R-squared) and set of Numpy arrays with the result of the fitting.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">linear_regression</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">get_slope</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">intercept</span> <span class="o">=</span> <span class="n">get_intercept</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span>
+    <span class="n">y_fit</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">intercept</span>
+    <span class="n">r_squared</span> <span class="o">=</span> <span class="n">get_r_squared</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">)</span>
+    
+    <span class="n">summary</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Slope'</span><span class="p">:</span> <span class="n">slope</span><span class="p">,</span> 
+               <span class="s">'Intercept'</span><span class="p">:</span> <span class="n">intercept</span><span class="p">,</span>
+               <span class="s">'R-squared'</span><span class="p">:</span> <span class="n">r_squared</span><span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">summary</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="running-the-algoritm">Running the algoritm</h2>
+
+<p>Let’s see if the implemented code works.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">summary</span><span class="p">,</span> <span class="n">fit</span> <span class="o">=</span> <span class="n">linear_regression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">summary</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'Slope': 2.959611239086049,
+ 'Intercept': 13.001211160835936,
+ 'R-squared': 0.9529103935021158}
+</code></pre></div></div>
+
+<p>Time to plot the input data and the line of best fit together in one graph.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fit</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'fit'</span><span class="p">,</span> <span class="s">'data'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'X'</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Y'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/blog/2020-09-26/data_and_fit.png" alt="png" /></p>
+
+<p>Looks really good :-)</p>
+
+<h2 id="finall-test">Finall test</h2>
+
+<p>We can use <code class="language-plaintext highlighter-rouge">scipy.stats</code> to do linear regression on the same set of data and compare the result with the result received with the implemented model. This will be the final check if everything is correct.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="p">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">r_squared</span> <span class="o">=</span> <span class="n">r_value</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">summary_stats</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Slope'</span><span class="p">:</span> <span class="n">slope</span><span class="p">,</span> <span class="s">'Intercept'</span><span class="p">:</span> <span class="n">intercept</span><span class="p">,</span> <span class="s">'R-squared'</span><span class="p">:</span> <span class="n">r_squared</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Let’s put everything  to Pandas DataFrame, so it is easier to compare the results.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">summary</span><span class="p">,</span> <span class="n">summary_stats</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'My model'</span><span class="p">,</span> <span class="s">'Scipy model'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Slope</th>
+      <th>Intercept</th>
+      <th>R-squared</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Implemented model</th>
+      <td>2.959611</td>
+      <td>13.001211</td>
+      <td>0.95291</td>
+    </tr>
+    <tr>
+      <th>Scipy model</th>
+      <td>2.959611</td>
+      <td>13.001211</td>
+      <td>0.95291</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>It works! :D</p>
+
+
+<hr class="under_post">
+<br />
+
+<p class="post_date_large">
+  26 Sep 2020
+  
+  
+    - <a href="/authors/albert.html">Albert R.</a>
+  
+</p>
+
+
+
+      </section>
+      <aside>
+<!--  <h1>AR. Data Rules</h1>  -->
+  <h1><br /></h1>  <!-- leaving empty space for title, if needed in the future -->
+
+  <img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
+    
+  <ul>
+    
+      <li>
+        <a href="/" >Home</a>
+      </li>
+    
+      <li>
+        <a href="/blog.html" >Blog</a>
+      </li>
+    
+      <li>
+        <a href="/handbook.html" >Handbook</a>
+      </li>
+    
+      <li>
+        <a href="/about.html" >About</a>
+      </li>
+    
+  </ul>
+
+  <p class="copyright">&copy; 2020 Albert Ratajczak<p></p>
+</aside>
+
+    </div>
+  </body>
+
+</html>
