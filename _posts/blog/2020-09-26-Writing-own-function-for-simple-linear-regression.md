@@ -147,7 +147,7 @@ _ = plt.ylabel('Y')
 
 Looks really good :-)
 
-## Finall test
+## Final test
 
 We can use ```scipy.stats``` to do linear regression on the same set of data and compare the result with the result received with the implemented model. This will be the final check if everything is correct.
 
