@@ -155,7 +155,9 @@ We can use ```scipy.stats``` to do linear regression on the same set of data and
 ```python
 slope, intercept, r_value, *_ = stats.linregress(X, Y)
 r_squared = r_value ** 2
-summary_stats = {'Slope': slope, 'Intercept': intercept, 'R-squared': r_squared}
+summary_stats = {'Slope': slope, 
+                 'Intercept': intercept, 
+                 'R-squared': r_squared}
 ```
 
 Let's put everything  to Pandas DataFrame, so it is easier to compare the results.
@@ -164,7 +166,8 @@ Let's put everything  to Pandas DataFrame, so it is easier to compare the result
 ```python
 import pandas as pd
 
-pd.DataFrame(data=[summary, summary_stats], index=['My model', 'Scipy model'])
+pd.DataFrame(data=[summary, summary_stats], 
+             index=['My model', 'Scipy model'])
 ```
 
 
