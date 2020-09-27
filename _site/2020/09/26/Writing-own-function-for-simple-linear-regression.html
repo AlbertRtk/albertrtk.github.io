@@ -133,20 +133,23 @@
 
 <p>Looks really good :-)</p>
 
-<h2 id="finall-test">Finall test</h2>
+<h2 id="final-test">Final test</h2>
 
 <p>We can use <code class="language-plaintext highlighter-rouge">scipy.stats</code> to do linear regression on the same set of data and compare the result with the result received with the implemented model. This will be the final check if everything is correct.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="p">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 <span class="n">r_squared</span> <span class="o">=</span> <span class="n">r_value</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="n">summary_stats</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Slope'</span><span class="p">:</span> <span class="n">slope</span><span class="p">,</span> <span class="s">'Intercept'</span><span class="p">:</span> <span class="n">intercept</span><span class="p">,</span> <span class="s">'R-squared'</span><span class="p">:</span> <span class="n">r_squared</span><span class="p">}</span>
+<span class="n">summary_stats</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Slope'</span><span class="p">:</span> <span class="n">slope</span><span class="p">,</span> 
+                 <span class="s">'Intercept'</span><span class="p">:</span> <span class="n">intercept</span><span class="p">,</span> 
+                 <span class="s">'R-squared'</span><span class="p">:</span> <span class="n">r_squared</span><span class="p">}</span>
 </code></pre></div></div>
 
 <p>Let’s put everything  to Pandas DataFrame, so it is easier to compare the results.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
-<span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">summary</span><span class="p">,</span> <span class="n">summary_stats</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'My model'</span><span class="p">,</span> <span class="s">'Scipy model'</span><span class="p">])</span>
+<span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">summary</span><span class="p">,</span> <span class="n">summary_stats</span><span class="p">],</span> 
+             <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'My model'</span><span class="p">,</span> <span class="s">'Scipy model'</span><span class="p">])</span>
 </code></pre></div></div>
 
 <div>
