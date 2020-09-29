@@ -1,8 +1,10 @@
 <aside>
 <!--  <h1>{{ site.title }}</h1>  -->
   <h1><br /></h1>  <!-- leaving empty space for title, if needed in the future -->
-
+  <div class="table">
+    
   <img src="{{ site.avatar }}" alt="Avatar" class="avatar">
+  </div>
     
   <ul>
     {% for item in site.data.aside %}
@@ -12,5 +14,20 @@
     {% endfor %}
   </ul>
 
-  <p class="copyright">&copy; 2020 Albert Ratajczak<p></p>
+  <div class="table">
+    <ul id="social">
+      <li>
+        <a href="https://twitter.com/Albert_Rtk">
+          <img src=/assets/images/icons/twitter.png alt="Twitter" class="social">
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/AlbertRtk">
+          <img src=/assets/images/icons/github.png alt="Twitter" class="social">
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <p class="copyright">&copy; 2020 Albert Ratajczak</p>
 </aside>
