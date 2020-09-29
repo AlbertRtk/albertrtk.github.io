@@ -1,4 +1,4 @@
-@import url("highlight.css");
+@import url("highlights.css");
 html, body { height: 100%; margin: 0px 20px 0px 20px; }
 
 body { font-family: Arial, Verdana, sans-serif; }
@@ -49,10 +49,18 @@ aside a.current { font-weight: bold; }
 
 a.black_link { color: black; }
 
-aside ul { list-style: none; padding: 50px 0px 0px 30px; }
+aside ul { list-style: none; padding: 30px 0px 0px 50px; }
 
 aside li { padding: 0px 0px 5px 0px; }
 
-aside p.copyright { font-size: small; position: absolute; bottom: 0px; }
+aside p.copyright { font-size: small; position: absolute; bottom: 0px; padding: 0px 0px 0px 30px; }
+
+.table { display: table; /* centering */ margin: 0 auto; }
+
+aside ul#social { list-style: none; padding: 16px 0px 0px 0px; }
+
+aside ul#social li { display: inline; padding: 0px 4px 0px 4px; }
+
+aside img.social { width: 36px; }
 
 /*# sourceMappingURL=styles.css.map */
