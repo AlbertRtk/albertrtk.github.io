@@ -1,6 +1,6 @@
 ---
 author: albert
-tag: linear regression
+tag: linear-regression
 ---
 Having a set of data pairs (*x, y*), where *y* shows a linear dependence on *x*, the line of best fit can be found with the [simple linear regression]({% link _posts/handbook/statistics/2020-09-16-simple-linear-regression.md %}) model. In this post, I present Pyhton code solving the problem of simple linear regression.
 <!--more-->
