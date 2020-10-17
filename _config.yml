@@ -4,6 +4,8 @@ avatar: /assets/images/avatar.jpg
 collections:
   authors:
     output: true
+  pages:
+    output: true
 
 defaults:
   - scope:
@@ -11,6 +13,12 @@ defaults:
       type: "authors"
     values:
       layout: "author"
+
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
 
   # blog posts
   - scope:
