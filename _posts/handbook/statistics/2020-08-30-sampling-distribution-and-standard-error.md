@@ -1,5 +1,6 @@
 ---
 author: albert
+tags: statistics
 ---
 <!--more-->
 **Sampling distribution** - the distribution formed by a sample-based statistic.

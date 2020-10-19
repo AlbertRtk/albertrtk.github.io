@@ -1,5 +1,6 @@
 ---
 author: albert
+tags: statistics
 ---
 <!--more-->
 ### Confidence interval:

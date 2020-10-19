@@ -1,5 +1,6 @@
 ---
 author: albert
+tags: statistics
 ---
 <!--more-->
 **Variance** - measures the dispersion of a set of numbers around the mean of the numbers. Expressed in square units of the measured quantity.
