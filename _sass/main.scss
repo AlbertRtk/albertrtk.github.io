@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 10px 0px 10px;
+  padding: 0px;
 }
 
 body {  
@@ -8,9 +9,9 @@ body {
 }
 
 .wrapper {
-  width: 980px;
+  width: 100%;
   float: left;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 0px 0px 0px;
   margin: 0px;
   border: 0px solid #000000;
   height: 100%;
@@ -18,11 +19,13 @@ body {
 }
 
 section {
-  width: 600px;
-  padding: 10px 0px 0px 100px;
-  float: right;
+  width: 60%;
+  min-width: 560px;
+  max-width: 640px;
+  padding: 10px 0px 10px 250px;
+  float: center;
   font-size: larger;
-  margin: 0px;
+  margin: auto;
 }
 
 p.post_date {
@@ -117,6 +120,7 @@ aside {
   border-right: 1px solid gray;
   margin: 0px;
   position: fixed;
+  background-color: white;
 }
 
 aside img.avatar {
@@ -149,7 +153,7 @@ aside p.copyright {
   font-size: small;
   position: absolute;
   bottom: 0px;
-  padding: 0px 0px 0px 30px;
+  padding: 0px 0px 0px 50px;
 }
 
 .table {
