@@ -18,8 +18,16 @@ layout: default
   {% endif %}
 </p>
 
-{% if page.next %}
-  <p class="under_post"> 
+<p class="under_post"> 
+  Tags: 
+  {% for tag in page.tags %}
+    {% capture tag_name %}{{ tag }}{% endcapture %}
+    <a href="/topics.html#{{ tag_name }}">{{ tag_name }} &nbsp;</a>
+  {% endfor %} 
+  <br />
+
+  {% if page.next %}
     Next post: <a href="{{ page.next.url }}">{{ page.next.title }}</a>
-  </p>
-{% endif %}
+  {% endif %}
+</p>
+

@@ -23,3 +23,10 @@ title: Home
 
     {% endfor %}
 </ul>
+
+<hr />
+
+<p class="title_middle">Tags</p>
+{% for tag in site.tags %}
+  <a href="topics.html#{{ tag[0 ] }}">{{ tag[0] }} &nbsp;</a>
+{% endfor %}

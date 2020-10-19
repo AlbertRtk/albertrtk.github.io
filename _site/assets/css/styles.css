@@ -17,9 +17,11 @@ p.post_title { font-size: xx-large; font-weight: bold; padding: 0px 0px 0px 0px;
 
 p.post_title_small { padding: 0px 0px 0px 0px; margin: 0px; }
 
+p.title_middle { font-size: x-large; font-weight: bold; padding: 10px 0px 10px 0px; margin: 0px; }
+
 p.read_more { font-size: small; padding: 0px 0px 0px 0px; margin: 0px; }
 
-p.under_post { font-size: medium; padding: 0px 0px 0px 0px; margin: 40px 0px 20px 0px; }
+p.under_post { font-size: medium; line-height: 1.6; padding: 0px 0px 0px 0px; margin: 30px 0px 10px 0px; }
 
 li { padding: 0px 0px 5px 0px; }
 
@@ -27,9 +29,7 @@ ul.home { list-style: none; padding: 80px 0px 20px 0px; margin: 0px; }
 
 li.home { padding: 0px 0px 70px 0px; }
 
-ul.blog { list-style: none; padding: 20px 0px 20px 0px; margin: 0px; }
-
-li.blog { padding: 0px 0px 20px 0px; }
+ul.titles_list { margin: 0px 0px 20px 0px; }
 
 table { min-width: 480px; }
 
