@@ -1,6 +1,6 @@
 ---
 author: albert
-tag: linear-regression
+tags: linear-regression
 ---
 <!--more-->
 For a given set of *n* data pairs *(x<sub>i</sub>, y<sub>i</sub>)*, the line of best fit is given by the equation
