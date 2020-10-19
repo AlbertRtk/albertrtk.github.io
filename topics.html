@@ -1,0 +1,15 @@
+---
+title: Topics
+---
+<h1>Topics</h1>
+
+{% for tag in site.tags %}
+  <p class="title_middle" id={{ tag[0] }}>
+    {{ tag[0] }}
+  </p>
+  <ul class="titles_list">
+    {% for post in tag[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}

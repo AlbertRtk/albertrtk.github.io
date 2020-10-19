@@ -1,6 +1,6 @@
 ---
 author: albert
-tags: task-automation, windows
+tags: task-automation windows
 ---
 On the Linux system, files and directories which name starts with a dot are often used for storing settings, etc. They are "hidden" in many file managers. The convention is often transferred  to Windows, however Windows Explorer doesn't hide such named files and directories. Which annoyed me...
 <!--more-->
