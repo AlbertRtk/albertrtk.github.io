@@ -1,4 +1,4 @@
-title: AlbertRtk
+title: AR. Data Rules
 avatar: /assets/images/avatar.jpg
 
 # comma separated titles of sections 
@@ -16,18 +16,33 @@ defaults:
       type: "authors"
     values:
       layout: "author"
+
+  # blog posts
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
       excerpt_separator: <!--more-->
+
   - scope:
       path: ""
       type: "handbook"
     values:
       layout: "handbookpage"
+
+  # handbook posts
+  # - scope:
+  #     path: "_posts/handbook"
+  #     type: "posts"
+  #   values:
+  #     layout: "post"
+  #     category: Handbook
+  #     excerpt_separator: <!--more-->
+  #     permalink: /:categories/:title:output_ext
+
   - scope:
       path: ""
     values:
       layout: "default"
+      

@@ -3,17 +3,27 @@ title: Blog
 ---
 <h1>Blog posts</h1>
 
-<table>
-  {% for post in site.posts %}
-    <tr class="blog">
-      <td class="blog_post_date">
-        <p class="post_date_small">
-          {{ post.date | date_to_string }}
-        </p>
-      </td>
-      <td>
-        <p class="post_title_small"><a href="{{ post.url }}">{{ post.title }}</a></p>
-      </td>
-    </tr>
-  {% endfor %}
-</table>
+{% assign post_month = "-" %}
+
+<ul class="titles_list"> <!-- dummy ul for closing tag sitting in unless -->
+
+{% for post in site.posts %}
+  {% unless post.category %}
+  
+    {% assign next_post_month = post.date | date: "%B %Y" %}
+    
+    {% unless next_post_month contains post_month %}
+      {% assign post_month = next_post_month %}
+      </ul> <!-- closing previous ul tag (dummy in the first call) -->
+      <p class="title_middle">
+        {{ post_month }}
+      </p>
+      <ul class="titles_list">
+    {% endunless %}
+    
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+
+  {% endunless %}  
+{% endfor %}
+
+</ul>

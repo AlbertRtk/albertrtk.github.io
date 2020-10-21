@@ -1,6 +1,9 @@
 ---
-section: Statistics
+author: albert
+section: statistics
+tags: statistics
 ---
+<!--more-->
 **Variance** - measures the dispersion of a set of numbers around the mean of the numbers. Expressed in square units of the measured quantity.
 
 **Standard deviation** - the square root of variance. Expressed in the unit of the measured quantity.

@@ -3,25 +3,14 @@ title: Handbook
 ---
 <h1>Handbook</h1>
 
-{% assign sections = site.sections | remove: " " | split: "," %}
+<ol>
+  {% for post in site.handbook %}
+ 
+    <li>
+      <p class="post_title_small"><a href="{{ post.url }}">{{ post.title }}</a></p>
+    </li>
 
-{% for section in sections %}
-  
-  <h3>{{ section }}</h3>
+  {% endfor %}
+</ol>
 
-  <ol>
-    {% for post in site.handbook %}
-
-      {% if post.section contains section %}  
-        <li>
-          <p class="post_title_small"><a href="{{ post.url }}">{{ post.title }}</a></p>
-        </li>
-      {% endif %}
-
-    {% endfor %}
-  </ol>
-
-  <br />
-
-{% endfor %}
-
+<br />

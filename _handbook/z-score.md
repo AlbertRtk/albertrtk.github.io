@@ -1,6 +1,9 @@
 ---
-section: Statistics
+author: albert
+section: statistics
+tags: statistics
 ---
+<!--more-->
 **Z-score** gives information about the number of standard deviations a data point is away from the mean. 
 
 For a population and a given point *x*: <br />

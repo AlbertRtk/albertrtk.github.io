@@ -1,6 +1,9 @@
 ---
-section: Statistics
+author: albert
+section: statistics
+tags: statistics
 ---
+<!--more-->
 **Sampling distribution** - the distribution formed by a sample-based statistic.
 
 **Sampling distribution of the sample mean** - the distribution formed by arithmetic means of random samples taken from a population.
