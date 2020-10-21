@@ -9,7 +9,6 @@ collections:
     output: true
   handbook:
     output: true
-#    sort_by: title
 
 defaults:
   - scope:
@@ -33,14 +32,14 @@ defaults:
       layout: "handbookpage"
 
   # handbook posts
-  - scope:
-      path: "_posts/handbook"
-      type: "posts"
-    values:
-      layout: "post"
-      category: Handbook
-      excerpt_separator: <!--more-->
-      permalink: /:categories/:title:output_ext
+  # - scope:
+  #     path: "_posts/handbook"
+  #     type: "posts"
+  #   values:
+  #     layout: "post"
+  #     category: Handbook
+  #     excerpt_separator: <!--more-->
+  #     permalink: /:categories/:title:output_ext
 
   - scope:
       path: ""
