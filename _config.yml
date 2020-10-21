@@ -19,7 +19,7 @@ defaults:
 
   # blog posts
   - scope:
-      path: "_posts/blog"
+      path: ""
       type: "posts"
     values:
       layout: "post"
