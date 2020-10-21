@@ -1,5 +1,6 @@
 ---
 author: albert
+section: statistics
 tags: statistics
 ---
 <!--more-->
