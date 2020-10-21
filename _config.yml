@@ -1,8 +1,13 @@
 title: AR. Data Rules
 avatar: /assets/images/avatar.jpg
 
+# comma separated titles of sections 
+sections: Statistics
+
 collections:
   authors:
+    output: true
+  handbook:
     output: true
 
 defaults:
@@ -19,6 +24,12 @@ defaults:
     values:
       layout: "post"
       excerpt_separator: <!--more-->
+
+  - scope:
+      path: ""
+      type: "handbook"
+    values:
+      layout: "handbookpage"
 
   # handbook posts
   - scope:
