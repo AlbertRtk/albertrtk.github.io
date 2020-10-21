@@ -1,8 +1,13 @@
 title: AR. Data Rules
 avatar: /assets/images/avatar.jpg
 
+# comma separated titles of sections 
+sections: Statistics
+
 collections:
   authors:
+    output: true
+  handbook:
     output: true
 
 defaults:
@@ -14,21 +19,27 @@ defaults:
 
   # blog posts
   - scope:
-      path: "_posts/blog"
+      path: ""
       type: "posts"
     values:
       layout: "post"
       excerpt_separator: <!--more-->
 
-  # handbook posts
   - scope:
-      path: "_posts/handbook"
-      type: "posts"
+      path: ""
+      type: "handbook"
     values:
-      layout: "post"
-      category: Handbook
-      excerpt_separator: <!--more-->
-      permalink: /:categories/:title:output_ext
+      layout: "handbookpage"
+
+  # handbook posts
+  # - scope:
+  #     path: "_posts/handbook"
+  #     type: "posts"
+  #   values:
+  #     layout: "post"
+  #     category: Handbook
+  #     excerpt_separator: <!--more-->
+  #     permalink: /:categories/:title:output_ext
 
   - scope:
       path: ""
