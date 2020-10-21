@@ -4,8 +4,8 @@ title: Topics
 <h1>Topics</h1>
 
 <!-- chacking tags in handbook pages -->
-{% assign handbook_tags =  site.handbook | map: 'tags' | uniq %}
-{% assign handbook_tags =  handbook_tags | join: "," %}
+{% assign handbook_tags = site.handbook | map: 'tags' | uniq %}
+{% assign handbook_tags = handbook_tags | join: "," %}
 
 {% for tag in site.tags %}
   
@@ -28,12 +28,12 @@ title: Topics
     {% endfor %}
 
   </ul>
-  
+
 {% endfor %}
 
 
 <!-- printing tags which appear only in handbook -->
-{% assign handbook_tags =  handbook_tags | split: "," %}
+{% assign handbook_tags = handbook_tags | split: "," %}
 
 {% for tag in handbook_tags %}
 
