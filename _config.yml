@@ -9,6 +9,7 @@ collections:
     output: true
   handbook:
     output: true
+#    sort_by: title
 
 defaults:
   - scope:
