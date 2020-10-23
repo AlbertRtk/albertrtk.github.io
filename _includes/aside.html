@@ -1,19 +1,11 @@
 <aside>
 <!--  <h1>{{ site.title }}</h1>  -->
-  <h1><br /></h1>  <!-- leaving empty space for title, if needed in the future -->
+  <!-- <h1><br /></h1> space for title, if needed in the future -->
   <div class="table">
     
   <img src="{{ site.avatar }}" alt="Avatar" class="avatar">
   </div>
-    
-  <ul>
-    {% for item in site.data.aside %}
-      <li>
-        <a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>{{ item.name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
+  
   <div class="table">
     <ul id="social">
       <li>
@@ -28,6 +20,15 @@
       </li>
     </ul>
   </div>
+    
+  <ul>
+    {% for item in site.data.aside %}
+      <li>
+        <a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>{{ item.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
 
   <p class="copyright">&copy; 2020 AlbertRtk</p>
 </aside>
