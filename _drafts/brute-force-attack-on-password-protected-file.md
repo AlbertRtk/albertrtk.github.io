@@ -2,19 +2,26 @@
 author: albert
 tags: ethical-hacking
 ---
-During brute-force attack, an attacker submits repeatably passwords from a list of common passwords with the hope of finding the correct one. In this post, I share my attempt of brute-force attack on a password protected ZIP file using simple script I've written in Python3.
+During a brute-force attack, an attacker submits repeatably passwords from a list of common passwords with the hope of finding the correct one. In this post, I share my attempt of brute-force attack on a password protected ZIP file using a simple script I've written in Python3.
 <!--more-->
 
-**Disclaimer:** Script and the post were written for educational purposes only.
+---
 
-So, I had to start with doing some research on the topick. ZIP files can be managed in Python code with ```zipfile``` module. Additionally, to make the process of password breaking look more fancy, I decided to use ```tqdm```.
+**Disclaimer:** <br />
+The script and the post were written for educational purposes only.
+
+You can download the script [here](https://github.com/AlbertRtk/ethical_hacking/blob/main/brute_force_zip.py).
+
+---
+
+So, I had to start by doing some research on the topic. ZIP files can be managed in Python code with ```zipfile``` module. Additionally, to make the process of password cracking look fancier, I decided to use ```tqdm```.
 
 ```python
 import zipfile
 from tqdm import tqdm
 ```
 
-I asked my wife to choose some word-based password and protect a ZIP file with it. [Here](https://www.kaggle.com/wjburns/common-password-list-rockyoutxt) I've found a list of common passwords - ```rockyou.txt```. I placed the files in project directry tree and assigned their paths to variables.
+I asked my wife to choose some word-based password and protect a ZIP file with it. [Here](https://www.kaggle.com/wjburns/common-password-list-rockyoutxt) I've found a list of common passwords, ```rockyou.txt```. I placed the files in the project directory tree and assigned their paths to variables.
 
 ```python
 """ User's input """
@@ -22,7 +29,7 @@ ZIP_FILE_PATH = r'.\zip2hack.zip'
 DICT_FILE_PATH = r'.\brute_force_dict\rockyou.txt'
 ```
 
-Then, I wrote ```brute_force_zip``` function. The function takes the path to attacked ZIP file and the path to TXT file with passwords as arguments. Passwords from the TXT file are read into an array. Next, the function tries to extract ZIP files looping over passwords from the list. If it succeeds, the loop is broaken and the correct pasword is returned. If the proper password will not be found in the list, then ```None``` is returned.
+Then, I wrote the ```brute_force_zip``` function. The function takes as arguments the path to the attacked ZIP file and the path to the TXT file with passwords. Passwords from the TXT file are read into an array. Next, the function tries to extract zipped files using passwords from the list. If it succeeds, the loop is broken  and the correct password is returned. If the proper password will not be found in the list, then ```None``` is returned.
 
 ```python
 def brute_force_zip(zip_file, dict_file):
@@ -47,7 +54,7 @@ def brute_force_zip(zip_file, dict_file):
                 return password
 ```
 
-Finally, it was possible to call the function for the test ZIP file ```zip2hack.zip```. As the output, the script in the end prints the correct password or the information that the password has not been found.
+Finally, it was possible to call the function for the test ZIP file, ```zip2hack.zip```. As the output, the script in the end prints the correct password or the information that the password has not been found.
 
 ```python
 if __name__ == '__main__':
