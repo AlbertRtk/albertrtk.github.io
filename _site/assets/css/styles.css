@@ -7,7 +7,7 @@ body { font-family: Arial, Verdana, sans-serif; }
 
 section { width: 60%; min-width: 560px; max-width: 640px; padding: 10px 0px 10px 250px; float: center; font-size: larger; margin: auto; }
 
-section img { width: 100%; }
+section img.full_width { width: 100%; }
 
 p.post_date { font-size: x-small; padding: 0px 0px 0px 0px; margin: 0px; }
 
