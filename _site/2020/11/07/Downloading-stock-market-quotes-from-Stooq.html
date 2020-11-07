@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Downloading Stock Market Quotes From Stooq - > AlbertRtk</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <aside>
+<!--  <h1>> AlbertRtk</h1>  -->
+  <!-- <h1><br /></h1> space for title, if needed in the future -->
+  <div class="table">
+    
+  <img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
+  </div>
+  
+  <div class="table">
+    <ul id="social">
+      <li>
+        <a href="https://twitter.com/AlbertRtk_">
+          <img src=/assets/images/icons/twitter.png alt="Twitter" class="social">
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/AlbertRtk">
+          <img src=/assets/images/icons/github.png alt="Twitter" class="social">
+        </a>
+      </li>
+    </ul>
+  </div>
+    
+  <ul>
+    
+      <li>
+        <a href="/" >Home</a>
+      </li>
+    
+      <li>
+        <a href="/blog.html" >Blog</a>
+      </li>
+    
+      <li>
+        <a href="/handbook.html" >Handbook</a>
+      </li>
+    
+      <li>
+        <a href="/projects.html" >Projects</a>
+      </li>
+    
+      <li>
+        <a href="/topics.html" >Topics</a>
+      </li>
+    
+      <li>
+        <a href="/about.html" >About</a>
+      </li>
+    
+  </ul>
+
+  <p class="copyright">&copy; 2020 AlbertRtk</p>
+</aside>
+
+      <section>
+        <h1>
+  Downloading Stock Market Quotes From Stooq
+</h1>
+
+<p>Stooq.com is a web service that delivers information about stock markets around the world. The service provides also historical stock quotes in the form of CSV files. The data can be easily downloaded, and then analyzed, with Python.
+<!--more--></p>
+
+<h2 id="shortly-about-stooq-api">Shortly about Stooq API</h2>
+<p>Historical stock market data are accessible with an URL in the form of https://stooq.com/q/d/l/?s=TICKER&amp;i=INTERVAL, where TICKER is an abbreviation identifying traded share, and INTERVAL defines the time interval between quotations. You can find at Stooq information about tickers for all shares for which data are accessible. For Polish shares, it will be usually something like CCC, ALE, etc. In the case of US shares, it is required to add country code after the dot, e.g., APPL.US. Interval is one letter and can take the following values: d - daily, w - weekly, m - monthly, q - quarterly, and y - yearly.</p>
+
+<h2 id="downloading-data">Downloading data</h2>
+<p>We will use <code class="language-plaintext highlighter-rouge">urlretrieve</code> to download the CSV file. Later, the data will be read to Pandas <code class="language-plaintext highlighter-rouge">DataFrame</code>. There is also a need to import <code class="language-plaintext highlighter-rouge">datetime</code> to parse strings with date information.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div></div>
+
+<p>Let’s download daily historical data for Warsaw Stock Exchange Index - WIG (polish: <em>Warszawski Indeks Giełdowy</em>).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ticker</span> <span class="o">=</span> <span class="s">'WIG'</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="s">'d'</span>
+</code></pre></div></div>
+
+<p>The data should be accessible with the URL</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="s">f'https://stooq.com/q/d/l/?s=</span><span class="si">{</span><span class="n">ticker</span><span class="si">}</span><span class="s">&amp;i=</span><span class="si">{</span><span class="n">interval</span><span class="si">}</span><span class="s">'</span>
+</code></pre></div></div>
+
+<p>I want to save the data into a CSV file with the ticker in the name.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">csv_file</span> <span class="o">=</span> <span class="n">ticker</span> <span class="o">+</span> <span class="s">'.csv'</span>
+</code></pre></div></div>
+
+<p>To get the data, we just need to call <code class="language-plaintext highlighter-rouge">urlretrieve</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">csv_file</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Done! Let’s see if we can read the data into <code class="language-plaintext highlighter-rouge">DataFrame</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s">'Date'</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s">'Date'</span><span class="p">],</span>
+            <span class="n">date_parser</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">'%Y-%m-%d'</span><span class="p">))</span>
+
+<span class="n">data</span><span class="p">.</span><span class="n">tail</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-11-02</th>
+      <td>44413.22</td>
+      <td>45334.97</td>
+      <td>44413.22</td>
+      <td>45177.16</td>
+      <td>53359303.0</td>
+    </tr>
+    <tr>
+      <th>2020-11-03</th>
+      <td>45543.15</td>
+      <td>47177.81</td>
+      <td>45510.32</td>
+      <td>47160.46</td>
+      <td>61401199.0</td>
+    </tr>
+    <tr>
+      <th>2020-11-04</th>
+      <td>46772.97</td>
+      <td>47294.20</td>
+      <td>46170.96</td>
+      <td>47294.20</td>
+      <td>51383416.0</td>
+    </tr>
+    <tr>
+      <th>2020-11-05</th>
+      <td>47809.56</td>
+      <td>48422.93</td>
+      <td>47656.12</td>
+      <td>48295.31</td>
+      <td>45575557.0</td>
+    </tr>
+    <tr>
+      <th>2020-11-06</th>
+      <td>48392.71</td>
+      <td>49058.29</td>
+      <td>47916.16</td>
+      <td>48962.48</td>
+      <td>46569222.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>We can also easily plot the data using <code class="language-plaintext highlighter-rouge">mplfinance</code> package.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">mplfinance</span> <span class="k">as</span> <span class="n">mpl</span>
+<span class="n">mpl</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="nb">type</span><span class="o">=</span><span class="s">'candle'</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img class="full_width" src="/assets/images/blog/2020-11-07/wig_candle.png" alt="WIG" /></p>
+
+
+
+<hr class="under_post">
+<br />
+
+<p class="post_date_large">
+  07 Nov 2020
+  
+  
+    - <a href="/authors/albert.html">Albert</a>
+  
+</p>
+
+<p class="under_post"> 
+  Tags: 
+  
+    
+    <a href="/topics.html#python">python &nbsp;</a>
+  
+    
+    <a href="/topics.html#stock-market">stock-market &nbsp;</a>
+   
+  <br />
+
+  
+</p>
+
+
+      </section>
+    </div>
+  </body>
+
+</html>
