@@ -35,6 +35,12 @@ ul.titles_list { margin: 0px 0px 20px 0px; }
 
 table { min-width: 480px; }
 
+table.dataframe { width: 100%; border-collapse: collapse; }
+
+table.dataframe th { background-color: #dddddd; }
+
+table.dataframe td, th { text-align: right; padding: 1px 5px; }
+
 tr.blog { vertical-align: top; padding: 10px 0px 0px 0px; }
 
 td.blog_post_date { width: 70px; }

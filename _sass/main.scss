@@ -104,6 +104,20 @@ table {
   min-width: 480px;
 }
 
+table.dataframe {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.dataframe th {
+  background-color: grayscale($color: #dddddd);
+}
+
+table.dataframe td, th {
+  text-align: right;
+  padding: 1px 5px;
+}
+
 tr.blog {
   vertical-align: top;
   padding: 10px 0px 0px 0px;
