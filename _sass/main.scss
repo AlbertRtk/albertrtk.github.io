@@ -28,7 +28,7 @@ section {
   margin: auto;
 }
 
-section img {
+section img.full_width {
   width: 100%;
 }
 
@@ -102,6 +102,20 @@ ul.titles_list {
 
 table {
   min-width: 480px;
+}
+
+table.dataframe {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.dataframe th {
+  background-color: grayscale($color: #dddddd);
+}
+
+table.dataframe td, th {
+  text-align: right;
+  padding: 1px 5px;
 }
 
 tr.blog {
