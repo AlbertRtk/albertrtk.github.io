@@ -74,5 +74,5 @@ python .\brute_force_zip.py
 So, what is my wife's password? Who is guarding the file? ;-)
 
 <a href="/assets/images/blog/2020-10-24/zip_brute_force_attack.jpg">
-<img class="full_width" src="/assets/images/blog/2020-10-24/zip_brute_force_attack.jpg">
+<img class="full_width" src="/assets/images/blog/2020-10-24/zip_brute_force_attack.jpg" alt="frenchbulldog">
 </a>
