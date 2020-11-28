@@ -21,11 +21,16 @@ body {
 section {
   width: 60%;
   min-width: 560px;
-  max-width: 640px;
-  padding: 10px 0px 10px 250px;
+  max-width: 720px;
+  padding: 10px 250px 10px 250px;
   float: center;
-  font-size: larger;
   margin: auto;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: xx-large;
+  line-height: 1.25;
 }
 
 section img.full_width {
@@ -55,6 +60,7 @@ p.post_title {
   font-weight: bold;
   padding: 0px 0px 0px 0px;
   margin: 0px;
+  line-height: 1.25;
 }
 
 p.post_title_small {
