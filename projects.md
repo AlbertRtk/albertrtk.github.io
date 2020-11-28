@@ -4,7 +4,7 @@ title: Projects
 # Projects
 
 Selected projects from my [GitHub](https://github.com/AlbertRtk/).
-<br />
+<br /><br />
 
 * [Stock Market Insights](https://albertrtk.github.io/stock_market_insights/)<br />
     `Python` `Pandas`
