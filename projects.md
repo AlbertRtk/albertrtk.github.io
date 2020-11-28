@@ -9,5 +9,4 @@ Selected projects from my [GitHub](https://github.com/AlbertRtk/):
     `Python` `Pandas`
 
 * [Weight Training Tracker](https://albertrtk.github.io/weight_training_tracker/)<br />
-    
     `Python` `Django`
