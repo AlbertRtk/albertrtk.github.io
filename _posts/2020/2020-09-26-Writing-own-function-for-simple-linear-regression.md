@@ -5,7 +5,7 @@ tags: linear-regression
 Having a set of data pairs (*x, y*), where *y* shows a linear dependence on *x*, the line of best fit can be found with the [simple linear regression]({% link _handbook/simple-linear-regression.md %}) model. In this post, I present Pyhton code solving the problem of simple linear regression.
 <!--more-->
 
-## Imports and data preparation
+### Imports and data preparation
 
 First, let's import stuff. Numpy for arrangement and easy processing of numerical data, Matplotlib for visualization, and in the and stats module from Scipy to test if the implemented solution works properly.
 
@@ -40,7 +40,7 @@ _ = plt.ylabel('Y')
 
 Looks fine. There is clearly linear dependence, however points don't create a straight line (due to introduced noise).
 
-## Writing the algorithm
+### Writing the algorithm
 
 The slope for the line of best fit is given with equation
 
@@ -111,7 +111,7 @@ def linear_regression(x, y):
     return summary, (x, y_fit)
 ```
 
-## Running the algoritm
+### Running the algoritm
 
 Let's see if the implemented code works.
 
@@ -147,7 +147,7 @@ _ = plt.ylabel('Y')
 
 Looks really good :-)
 
-## Final test
+### Final test
 
 We can use ```scipy.stats``` to do linear regression on the same set of data and compare the result with the result received with the implemented model. This will be the final check if everything is correct.
 

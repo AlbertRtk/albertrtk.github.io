@@ -3,14 +3,14 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Writing Own Function For Simple Linear Regression - > AlbertRtk</title>
+    <title>Writing Own Function For Simple Linear Regression - AlbertRtk</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
 
   <body>
     <div class="wrapper">
       <aside>
-<!--  <h1>> AlbertRtk</h1>  -->
+<!--  <h1>AlbertRtk</h1>  -->
   <!-- <h1><br /></h1> space for title, if needed in the future -->
   <div class="table">
     
@@ -71,7 +71,7 @@
 <p>Having a set of data pairs (<em>x, y</em>), where <em>y</em> shows a linear dependence on <em>x</em>, the line of best fit can be found with the <a href="/handbook/simple-linear-regression.html">simple linear regression</a> model. In this post, I present Pyhton code solving the problem of simple linear regression.
 <!--more--></p>
 
-<h2 id="imports-and-data-preparation">Imports and data preparation</h2>
+<h3 id="imports-and-data-preparation">Imports and data preparation</h3>
 
 <p>First, let’s import stuff. Numpy for arrangement and easy processing of numerical data, Matplotlib for visualization, and in the and stats module from Scipy to test if the implemented solution works properly.</p>
 
@@ -98,7 +98,7 @@
 
 <p>Looks fine. There is clearly linear dependence, however points don’t create a straight line (due to introduced noise).</p>
 
-<h2 id="writing-the-algorithm">Writing the algorithm</h2>
+<h3 id="writing-the-algorithm">Writing the algorithm</h3>
 
 <p>The slope for the line of best fit is given with equation</p>
 
@@ -161,7 +161,7 @@
     <span class="k">return</span> <span class="n">summary</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_fit</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="running-the-algoritm">Running the algoritm</h2>
+<h3 id="running-the-algoritm">Running the algoritm</h3>
 
 <p>Let’s see if the implemented code works.</p>
 
@@ -187,7 +187,7 @@
 
 <p>Looks really good :-)</p>
 
-<h2 id="final-test">Final test</h2>
+<h3 id="final-test">Final test</h3>
 
 <p>We can use <code class="language-plaintext highlighter-rouge">scipy.stats</code> to do linear regression on the same set of data and compare the result with the result received with the implemented model. This will be the final check if everything is correct.</p>
 

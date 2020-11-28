@@ -5,10 +5,10 @@ tags: python stock-market
 [Stooq.com](http://stooq.com/) is a web service that delivers information about stock markets around the world. The service provides also historical stock quotes in the form of CSV files. The data can be easily downloaded, and then analyzed, with Python.
 <!--more-->
 
-## Shortly about Stooq API
+### Shortly about Stooq API
 Historical stock market data are accessible with an URL in the form of ```https://stooq.com/q/d/l/?s=TICKER&i=INTERVAL```, where TICKER is an abbreviation identifying traded share, and INTERVAL defines the time interval between quotations. You can find at Stooq information about tickers for all shares for which data are accessible. For Polish shares, it will be usually something like CCC, ALE, etc. In the case of US shares, it is required to add country code after the dot, e.g., APPL.US. Interval is one letter and can take the following values: d - daily, w - weekly, m - monthly, q - quarterly, and y - yearly.
 
-## Downloading data
+### Downloading data
 We will use ```urlretrieve``` to download the CSV file. Later, the data will be read to Pandas ```DataFrame```. There is also a need to import ```datetime``` to parse strings with date information. 
 
 

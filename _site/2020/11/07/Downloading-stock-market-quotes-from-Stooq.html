@@ -3,14 +3,14 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Downloading Stock Market Quotes From Stooq - > AlbertRtk</title>
+    <title>Downloading Stock Market Quotes From Stooq - AlbertRtk</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
 
   <body>
     <div class="wrapper">
       <aside>
-<!--  <h1>> AlbertRtk</h1>  -->
+<!--  <h1>AlbertRtk</h1>  -->
   <!-- <h1><br /></h1> space for title, if needed in the future -->
   <div class="table">
     
@@ -71,10 +71,10 @@
 <p><a href="http://stooq.com/">Stooq.com</a> is a web service that delivers information about stock markets around the world. The service provides also historical stock quotes in the form of CSV files. The data can be easily downloaded, and then analyzed, with Python.
 <!--more--></p>
 
-<h2 id="shortly-about-stooq-api">Shortly about Stooq API</h2>
+<h3 id="shortly-about-stooq-api">Shortly about Stooq API</h3>
 <p>Historical stock market data are accessible with an URL in the form of <code class="language-plaintext highlighter-rouge">https://stooq.com/q/d/l/?s=TICKER&amp;i=INTERVAL</code>, where TICKER is an abbreviation identifying traded share, and INTERVAL defines the time interval between quotations. You can find at Stooq information about tickers for all shares for which data are accessible. For Polish shares, it will be usually something like CCC, ALE, etc. In the case of US shares, it is required to add country code after the dot, e.g., APPL.US. Interval is one letter and can take the following values: d - daily, w - weekly, m - monthly, q - quarterly, and y - yearly.</p>
 
-<h2 id="downloading-data">Downloading data</h2>
+<h3 id="downloading-data">Downloading data</h3>
 <p>We will use <code class="language-plaintext highlighter-rouge">urlretrieve</code> to download the CSV file. Later, the data will be read to Pandas <code class="language-plaintext highlighter-rouge">DataFrame</code>. There is also a need to import <code class="language-plaintext highlighter-rouge">datetime</code> to parse strings with date information.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
