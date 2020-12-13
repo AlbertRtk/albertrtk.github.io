@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>I Have Created A New Python Package: Marketools - AlbertRtk</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <aside>
+<!--  <h1>AlbertRtk</h1>  -->
+  <!-- <h1><br /></h1> space for title, if needed in the future -->
+  <div class="table">
+    
+  <img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
+  </div>
+  
+  <div class="table">
+    <ul id="social">
+      <li>
+        <a href="https://twitter.com/AlbertRtk_">
+          <img src=/assets/images/icons/twitter.png alt="Twitter" class="social">
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/AlbertRtk">
+          <img src=/assets/images/icons/github.png alt="Twitter" class="social">
+        </a>
+      </li>
+    </ul>
+  </div>
+    
+  <ul>
+    
+      <li>
+        <a href="/" >Home</a>
+      </li>
+    
+      <li>
+        <a href="/blog.html" >Blog</a>
+      </li>
+    
+      <li>
+        <a href="/handbook.html" >Handbook</a>
+      </li>
+    
+      <li>
+        <a href="/projects.html" >Projects</a>
+      </li>
+    
+      <li>
+        <a href="/topics.html" >Topics</a>
+      </li>
+    
+      <li>
+        <a href="/about.html" >About</a>
+      </li>
+    
+  </ul>
+
+  <p class="copyright">&copy; 2020 AlbertRtk</p>
+</aside>
+
+      <section>
+        <h1>
+  I Have Created A New Python Package: Marketools
+</h1>
+
+<p>I have created a new Python package for web scraping and analysis of stock market data. Check <a href="https://pypi.org/project/marketools/">marketools</a>! Feel free to contribute!
+<!--more--></p>
+
+<p><br /></p>
+<h2 id="marketools-tools-for-stock-market-analysis">marketools: tools for stock market analysis</h2>
+<hr />
+<p><strong>PyPI:</strong> <a href="https://pypi.org/project/marketools/">https://pypi.org/project/marketools/</a></p>
+
+<p><strong>GitHub:</strong> <a href="https://github.com/AlbertRtk/marketools">https://github.com/AlbertRtk/marketools</a></p>
+
+<p><strong>Issues:</strong> <a href="https://github.com/AlbertRtk/marketools/issues">https://github.com/AlbertRtk/marketools/issues</a></p>
+
+<h2 id="about">About</h2>
+<p>marketools is a Python package for web scraping and analysis of stock market data. Project is under development. At the moment, analysis functionality is limited. You are welcomed to contribute to the project.</p>
+
+<h3 id="source-of-data">Source of data</h3>
+<p>Data are scraped from <a href="http://stooq.com/">Stooq</a> service.</p>
+
+<h2 id="support">Support</h2>
+<p>You may report issues and functionality requests <a href="https://github.com/AlbertRtk/marketools/issues">here</a>.</p>
+
+<h2 id="installation">Installation</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>marketools
+</code></pre></div></div>
+<p>or</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/AlbertRtk/marketools.git
+</code></pre></div></div>
+
+<h2 id="example">Example</h2>
+<p>Import Stock class</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">marketools</span> <span class="kn">import</span> <span class="n">Stock</span>
+</code></pre></div></div>
+<p>Create Stock instance for selected ticker, here <a href="https://stooq.com/q/?s=pkn">PKN</a></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pkn</span> <span class="o">=</span> <span class="n">Stock</span><span class="p">(</span><span class="s">'PKN'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Get and print OHLC (open-high-low-close) data from the last 5 days</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pkn_ohlc</span> <span class="o">=</span> <span class="n">pkn</span><span class="p">.</span><span class="n">ohlc</span>  <span class="c1"># returns pandas.DataFrame
+</span><span class="k">print</span><span class="p">(</span><span class="n">pkn</span><span class="p">.</span><span class="n">ohlc</span><span class="p">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</code></pre></div></div>
+<p>Print available fundamental information</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">pkn</span><span class="p">.</span><span class="n">fundamentals</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+<hr class="under_post">
+<br />
+
+<p class="post_date_large">
+  29 Nov 2020
+  
+  
+    - <a href="/authors/albert.html">Albert</a>
+  
+</p>
+
+<p class="under_post"> 
+  Tags: 
+  
+    
+    <a href="/topics.html#python">python &nbsp;</a>
+  
+    
+    <a href="/topics.html#stock-market">stock-market &nbsp;</a>
+  
+    
+    <a href="/topics.html#marketools">marketools &nbsp;</a>
+   
+  <br />
+
+  
+</p>
+
+
+      </section>
+    </div>
+  </body>
+
+</html>
