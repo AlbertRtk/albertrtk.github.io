@@ -1,6 +1,6 @@
 ---
 author: albert
-tags: linux
+tags: linux task-automation
 ---
 Step-by-step description how I have set a scheduled backup of a local directory to network attached storage (NAS) - OpenMediaVault running on Raspberry Pi 4.
 <!--more-->
