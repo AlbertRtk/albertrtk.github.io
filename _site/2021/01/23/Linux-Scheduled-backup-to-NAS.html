@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Linux: Scheduled Backup To Nas - AlbertRtk</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <aside>
+<!--  <h1>AlbertRtk</h1>  -->
+  <!-- <h1><br /></h1> space for title, if needed in the future -->
+  <div class="table">
+    
+  <img src="/assets/images/avatar.jpg" alt="Avatar" class="avatar">
+  </div>
+  
+  <div class="table">
+    <ul id="social">
+      <li>
+        <a href="https://twitter.com/AlbertRtk_">
+          <img src=/assets/images/icons/twitter.png alt="Twitter" class="social">
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/AlbertRtk">
+          <img src=/assets/images/icons/github.png alt="Twitter" class="social">
+        </a>
+      </li>
+    </ul>
+  </div>
+    
+  <ul>
+    
+      <li>
+        <a href="/" >Home</a>
+      </li>
+    
+      <li>
+        <a href="/blog.html" >Blog</a>
+      </li>
+    
+      <li>
+        <a href="/handbook.html" >Handbook</a>
+      </li>
+    
+      <li>
+        <a href="/projects.html" >Projects</a>
+      </li>
+    
+      <li>
+        <a href="/topics.html" >Topics</a>
+      </li>
+    
+      <li>
+        <a href="/authors/albert.html" >About</a>
+      </li>
+    
+  </ul>
+
+  <p class="copyright">&copy; 2020 Albert Ratajczak</p>
+</aside>
+
+      <section>
+        <h1>
+  Linux: Scheduled Backup To Nas
+</h1>
+
+<p>Step-by-step description how I have set a scheduled backup of a local directory to network attached storage (NAS) - OpenMediaVault running on Raspberry Pi 4.
+<!--more--></p>
+
+<h2 id="pre-requirements">Pre-requirements</h2>
+<ol>
+  <li>PC running Kubuntu (should also work on other Ubuntu/Debian based distributions)</li>
+  <li>Network attached storage (NAS) connected to your local network - OpenMediaVault (OMV) running on Raspberry Pi 4.</li>
+</ol>
+
+<h2 id="find-the-path-to-the-destination-directory-on-nas">Find the path to the destination directory on NAS</h2>
+
+<p>Open terminal and connect with the server via SSH (IP address for your Raspberry Pi can be different)</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@192.168.0.248
+</code></pre></div></div>
+
+<p>List the <code class="language-plaintext highlighter-rouge">/srv</code> directory content</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> /srv
+</code></pre></div></div>
+
+<p>The output will be something like this</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dev-disk-by-uuid-eb282c0e-93b4-4921-bd56-2d6ed5937063  ftp  pillar  salt
+</code></pre></div></div>
+
+<p>The long name <code class="language-plaintext highlighter-rouge">dev-disk-by-uuid-&lt;uuid&gt;</code> is my drive connected to Raspberry Pi. Your drive will be named probably similar way. We can list its content</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> /srv/dev-disk-by-uuid-<span class="k">*</span>
+</code></pre></div></div>
+
+<p>You should see the directory structure  from the drive mounted in OMV. The destination directory should be located on the drive, so the destination path should look like, e.g.,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/srv/dev-disk-by-uuid-eb282c0e-93b4-4921-bd56-2d6ed5937063/backups/dst
+</code></pre></div></div>
+
+<p>Note that you will need write permission for the destination directory.</p>
+
+<h2 id="write-script-to-sync-local-directory-with-destination-directory-on-nas">Write script to sync local directory with destination directory on NAS</h2>
+
+<p>I want to backup my user’s home directory, excluding all files/directories that name starts with dot (hidden). I create a new script</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano ~/bin/home2omv
+</code></pre></div></div>
+
+<p>And paste into it the code</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+rsync <span class="nt">-av</span> <span class="nt">--delete</span> /home/albi/ albi@192.168.0.248:/srv/dev-disk-by-uuid-eb282c0e-93b4-4921-bd56-2d6ed5937063/Albert/backups/home/albi <span class="nt">--exclude</span> <span class="s1">'.*'</span>
+</code></pre></div></div>
+
+<p>Remember to make the file executable</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x ~/bin/home2omv
+</code></pre></div></div>
+
+<p>Also, <code class="language-plaintext highlighter-rouge">~/bin</code> should be added to the <code class="language-plaintext highlighter-rouge">PATH</code> (if its not)</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/bin
+</code></pre></div></div>
+
+<h2 id="generate-public-key-for-omv">Generate public key for OMV</h2>
+
+<p>At the moment it should be possible to call <code class="language-plaintext highlighter-rouge">home2omv</code> from the terminal. However, the user’s password to the server is required each time the script runs. If the password has to be typed each time, the task cannot be scheduled and run automatically.</p>
+
+<p>Generate public key</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> rsa
+</code></pre></div></div>
+
+<p>Export the public key to RFC 4716 format</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-e</span> <span class="nt">-f</span> ~/.ssh/id_rsa.pub
+</code></pre></div></div>
+
+<p>Copy the whole output, e.g.,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">----</span> BEGIN SSH2 PUBLIC KEY <span class="nt">----</span>
+Comment: <span class="s2">"3072-bit RSA, converted by albi@albi-lenovo from OpenSSH"</span>
+&lt;long-key-here&gt;
+<span class="nt">----</span> END SSH2 PUBLIC KEY <span class="nt">----</span>
+</code></pre></div></div>
+
+<p>Open your web browser, type IP address of your Raspberry Pi into address bar and login to OMV panel. Go to <code class="language-plaintext highlighter-rouge">Access Right Management &gt; User</code>.  Select your user name and click <code class="language-plaintext highlighter-rouge">Edit</code>. In popup window, switch to <code class="language-plaintext highlighter-rouge">Public keys</code> tab. Paste copied public key into the field in the popup and click <code class="language-plaintext highlighter-rouge">Save</code> button.</p>
+
+<p>Now, it should be possible to run the backup script without password required.</p>
+
+<h2 id="add-scheduled-task-for-backup">Add scheduled task for backup</h2>
+
+<p>To set scheduled task in Linux, in terminal type</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab <span class="nt">-e</span>
+</code></pre></div></div>
+
+<p>I want my backup script to run each day at 8 p.m. So, at the end of the file that opened, I add line</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 20 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> home2omv
+</code></pre></div></div>
+
+<p>The line starts with 5 numbers followed by a command to be executed. First number gives minute, second - hour, third - day of month, fourth - month, and the last one - day of week the command should be executed. Asterisk (*) stands for <em>any</em>.</p>
+
+<p>Done! Now my home directory should be copied to my NAS every day at 8 p.m.</p>
+
+
+<hr class="under_post">
+<br />
+
+<p class="post_date_large">
+  23 Jan 2021
+  
+  
+    - <a href="/authors/albert.html">Albert</a>
+  
+</p>
+
+<p class="under_post"> 
+  Tags: 
+  
+    
+    <a href="/topics.html#linux">linux &nbsp;</a>
+   
+  <br />
+
+  
+</p>
+
+
+      </section>
+    </div>
+  </body>
+
+</html>
