@@ -87,7 +87,7 @@ def demo_plot_view(request):
 
 ## Final result
 
-After running the Django development server and visiting http://localhost:8000/demo-plot/, you should see below figure.
+After running the Django development server and visiting http://localhost:8000/demo-plot/, you should see the below figure.
 
 <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
         <script type="text/javascript">/**
