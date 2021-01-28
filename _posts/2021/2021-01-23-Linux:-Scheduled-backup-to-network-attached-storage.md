@@ -97,7 +97,7 @@ crontab -e
 
 I want my backup script to run each day at 8 p.m. So, at the end of the file that opened, I add line
 ```bash
-0 20 * * * home2omv
+0 20 * * * /home/albi/bin/home2omv
 ```
 
 The line starts with 5 numbers followed by a command to be executed. First number gives minute, second - hour, third - day of month, fourth - month, and the last one - day of week the command should be executed. Asterisk (\*) stands for *any*.
