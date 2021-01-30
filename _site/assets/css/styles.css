@@ -17,7 +17,7 @@ p.post_date_large { font-size: small; padding: 0px 0px 0px 0px; margin: 0px; }
 
 p.post_date_small { font-size: xx-small; padding: 0px 0px 0px 0px; margin: 0px; }
 
-p.post_title { font-size: xx-large; font-weight: bold; padding: 0px 0px 0px 0px; margin: 0px; line-height: 1.25; }
+p.post_title { font-size: x-large; font-weight: bold; padding: 0px 0px 0px 0px; margin: 0px; line-height: 1.25; }
 
 p.post_title_small { padding: 0px 0px 0px 0px; margin: 0px; }
 
@@ -29,9 +29,11 @@ p.under_post { font-size: medium; line-height: 1.6; padding: 0px 0px 0px 0px; ma
 
 li { padding: 0px 0px 5px 0px; }
 
-ul.home { list-style: none; padding: 30px 0px 20px 0px; margin: 0px; }
+ul.home { list-style: none; padding: 30px 0px 00px 0px; margin: 0px; }
 
-li.home { padding: 0px 0px 70px 0px; }
+ul.home p { margin-top: 4px; margin-bottom: 4px; }
+
+li.home { padding: 0px 0px 50px 0px; }
 
 ul.titles_list { margin: 0px 0px 20px 0px; }
 
@@ -72,5 +74,7 @@ aside ul#social { list-style: none; padding: 0px 0px 0px 0px; margin: 0px; }
 aside ul#social li { display: inline; padding: 0px 4px 0px 4px; }
 
 aside img.social { width: 36px; }
+
+footer { text-align: center; font-size: small; width: 60%; min-width: 560px; max-width: 720px; padding: 10px 250px 10px 250px; float: center; margin: auto; line-height: 1.6; }
 
 /*# sourceMappingURL=styles.css.map */

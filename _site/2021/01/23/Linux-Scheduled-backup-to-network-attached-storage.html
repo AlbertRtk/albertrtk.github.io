@@ -60,7 +60,6 @@
     
   </ul>
 
-  <p class="copyright">&copy; 2020 Albert Ratajczak</p>
 </aside>
 
       <section>
@@ -151,7 +150,7 @@ Comment: <span class="s2">"3072-bit RSA, converted by albi@albi-lenovo from Open
 </code></pre></div></div>
 
 <p>I want my backup script to run each day at 8 p.m. So, at the end of the file that opened, I add line</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 20 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> home2omv
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 20 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /home/albi/bin/home2omv
 </code></pre></div></div>
 
 <p>The line starts with 5 numbers followed by a command to be executed. First number gives minute, second - hour, third - day of month, fourth - month, and the last one - day of week the command should be executed. Asterisk (*) stands for <em>any</em>.</p>
@@ -188,6 +187,10 @@ Comment: <span class="s2">"3072-bit RSA, converted by albi@albi-lenovo from Open
 
 
       </section>
+      <footer>
+        <hr />
+        Copyright &copy; 2021 Albert Ratajczak
+      </footer>
     </div>
   </body>
 
