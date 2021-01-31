@@ -34,4 +34,23 @@
     {% endfor %}
   </ul>
 
+  <div class="tags">
+    <p>Tags</p>
+
+    <!-- chacking tags in handbook pages -->
+    {% assign handbook_tags = site.handbook | map: 'tags' | uniq %}
+    {% assign handbook_tags = handbook_tags | join: "," %}
+
+    {% for tag in site.tags %}
+      {% assign handbook_tags = handbook_tags | remove: tag[0] %}  <!-- removing duplicates -->
+      <a href="/topics.html#{{ tag[0] }}">{{ tag[0] }}</a>
+    {% endfor %}
+
+    <!-- printing tags which appear only in handbook -->
+    {% assign handbook_tags = handbook_tags | split: "," %}
+    {% for tag in handbook_tags %}
+      <a href="/topics.html#{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </div>
+
 </aside>

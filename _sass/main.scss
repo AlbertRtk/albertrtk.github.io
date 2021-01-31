@@ -213,6 +213,25 @@ aside img.social {
   width: 36px;
 }
 
+aside .tags {
+  margin-top: 50px;
+  padding: 0px 20px 0px 20px;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.0;
+}
+
+aside .tags a {
+  font-size: small;
+}
+
+aside .tags p {
+  font-size: large;
+  font-weight: bold;
+  padding: 10px 0px 5px 0px;
+  margin: 0px;
+}
+
 footer{
   text-align: center;
   font-size: small;
