@@ -5,6 +5,7 @@ title: Projects
 
 Selected projects from my [GitHub](https://github.com/AlbertRtk/).
 
+---
 <br />
 
 * [marketools: tools for stock market analysis](https://albertrtk.github.io/marketools/)<br />
@@ -23,3 +24,5 @@ Django app for tracking of weight training progress.
 
 * [Running Twitter Bot](https://github.com/AlbertRtk/running_twitter_bot)<br />
 Bot Tweeting about upcoming running events in Poland.
+
+<br />
