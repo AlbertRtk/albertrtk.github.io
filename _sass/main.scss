@@ -6,6 +6,7 @@ html, body {
 
 body {  
   font-family: Arial, Verdana, sans-serif;
+  background-color: lightslategray;
 }
 
 .wrapper {
@@ -27,8 +28,6 @@ section {
   margin: auto;
   line-height: 1.6;
 }
-
-
 
 h1 {
   font-size: xx-large;
@@ -123,7 +122,7 @@ table.dataframe {
 }
 
 table.dataframe th {
-  background-color: grayscale($color: #dddddd);
+  background-color: slategrey;
 }
 
 table.dataframe td, th {
@@ -153,7 +152,7 @@ aside {
   border-right: 1px solid gray;
   margin: 0px;
   position: fixed;
-  background-color: white;
+  background-color: slategray;
 }
 
 aside img.avatar {
@@ -162,8 +161,12 @@ aside img.avatar {
 }
   
 a {
-  color: black;
+  color:midnightblue; /*other possibility indigo*/
   text-decoration: none;
+}
+
+aside a {
+  color: black;
 }
 
 aside a.current {
