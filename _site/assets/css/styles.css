@@ -55,7 +55,7 @@ aside { width: 240px; height: 100%; padding: 10px 0px 0px 0px; font-size: larger
 
 aside img.avatar { width: 200px; padding: 20px 0px 0px 0px; }
 
-a { color: blue; text-decoration: none; }
+a { color: black; text-decoration: none; }
 
 aside a.current { font-weight: bold; }
 
@@ -63,7 +63,7 @@ a.black_link { color: black; }
 
 aside ul { list-style: none; padding: 20px 0px 0px 50px; }
 
-aside li { padding: 0px 0px 5px 0px; }
+aside li { padding: 5px 0px 5px 0px; }
 
 aside p.copyright { font-size: small; position: absolute; bottom: 0px; padding: 0px 0px 0px 50px; }
 
