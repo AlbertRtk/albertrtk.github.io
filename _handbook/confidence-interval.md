@@ -5,7 +5,8 @@ tags: statistics
 ---
 <!--more-->
 ### Confidence interval:
-![Z-score](/assets/images/handbook/statistics/confidence_interval.gif)
+
+<img src="/assets/images/handbook/statistics/confidence_interval.gif" class="equation_gif" />
 
 For a (1-&alpha;)&times;100% confidence interval, we are (1-&alpha;)&times;100% confident that the true mean falls into the interval.
 

@@ -85,4 +85,6 @@ aside .tags p { font-size: large; font-weight: bold; padding: 10px 0px 5px 0px; 
 
 footer { text-align: center; font-size: small; width: 60%; min-width: 560px; max-width: 720px; padding: 10px 250px 10px 250px; float: center; margin: auto; line-height: 1.6; }
 
+img.equation_gif { background-color: white; padding: 5px 20px; }
+
 /*# sourceMappingURL=styles.css.map */

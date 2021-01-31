@@ -11,18 +11,18 @@ tags: statistics
 <br />
 
 ### Sample variance:
-![Sample variance](/assets/images/handbook/statistics/sample_variance.gif)
+<img src="/assets/images/handbook/statistics/sample_variance.gif" class="equation_gif" />
 
 ### Sample standard deviation:
-![Sample standard deviation](/assets/images/handbook/statistics/sample_standard_deviation.gif)
+<img src="/assets/images/handbook/statistics/sample_standard_deviation.gif" class="equation_gif" />
 
 <br />
 
 ### Population variance:
-![Population variance](/assets/images/handbook/statistics/population_variance.gif)
+<img src="/assets/images/handbook/statistics/population_variance.gif" class="equation_gif" />
 
 ### Population standard deviation:
-![population standard deviation](/assets/images/handbook/statistics/population_standard_deviation.gif)
+<img src="/assets/images/handbook/statistics/population_standard_deviation.gif" class="equation_gif" />
 
 <br />
 
