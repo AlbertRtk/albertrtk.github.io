@@ -38,6 +38,12 @@ section img.full_width {
   width: 100%;
 }
 
+section img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 p.post_date {
   font-size: x-small;
   padding: 0px 0px 0px 0px;

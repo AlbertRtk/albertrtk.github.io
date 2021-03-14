@@ -69,6 +69,6 @@ chmod +x krohnstatus krohntoggler
 4. Add Commend Output Applet to your Plasma Desktop/Panel. Right click on the applet and select `Configure Command Output...`
 5. In the input field under *Command* type `krohnstatus`, and in the input field under *Click* type `krohntoggler`
 
-<img width="400px" src="/assets/images/blog/2021-03-14/krohnkite_config.png" alt="Krohnkite config">  
+<img class="center" width="400px" src="/assets/images/blog/2021-03-14/krohnkite_config.png" alt="Krohnkite config">  
 
 Done! If you want you can play with other options and configure it according to your needs. Now you can toggle tiling manager with one click. Created button will display `|T|` if tiling is active, and `|F|` when the script is disabled and windows are in floating mode.
