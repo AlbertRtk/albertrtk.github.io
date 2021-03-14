@@ -7,8 +7,8 @@ Instructions how to add to KDE Plasma 5 panel a button for toggling of windows t
 
 ## Pre-requirements
 1. PC running Kubuntu (or other distro with KDE Plasma 5)
-1. KWin extension Kröhnkite: https://github.com/esjeon/krohnkite
-1. Plasma applet Command Output: https://github.com/Zren/plasma-applet-commandoutput
+1. KWin extension Kröhnkite: [https://github.com/esjeon/krohnkite](https://github.com/esjeon/krohnkite)
+1. Plasma applet Command Output: [https://github.com/Zren/plasma-applet-commandoutput](https://github.com/Zren/plasma-applet-commandoutput)
 
 ## Bash scripts
 
@@ -68,7 +68,9 @@ chmod +x krohnstatus krohntoggler
 ```
 4. Add Commend Output Applet to your Plasma Desktop/Panel. Right click on the applet and select `Configure Command Output...`
 5. In the input field under *Command* type `krohnstatus` and in the input field under *Click* type `krohntoggler`
+
 <img width="400px" src="/assets/images/blog/2021-03-14/krohnkite_config.png" alt="Krohnkite config">  
+
 6. You can play with other options and configure it according to your needs
 
 Done! Now you can toggle tiling manager with one click. Created button will display `|T|` if tiling is active, and `|F|` when the script is disabled and windows are in floating mode.
