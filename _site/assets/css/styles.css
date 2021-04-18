@@ -1,6 +1,8 @@
 @import url("highlights.css");
 html, body { margin: 0px; padding: 0px; }
 
+html { scroll-behavior: smooth; }
+
 body { font-family: Arial, Verdana, sans-serif; }
 
 .wrapper { width: 100%; padding: 0px 0px 0px 0px; margin: 0px; border: 0px solid #000000; margin: 0px; }
@@ -21,19 +23,25 @@ div.start-background { background-image: url("/assets/images/start-background.jp
 
 .welcome-text { text-align: center; position: absolute; top: 33%; left: 50%; transform: translate(-50%, -50%); color: white; }
 
-.welcome-text h1 { background-color: white; border-radius: 0.5em; padding: 0.2em 0.5em; font-size: 5em; color: black; }
+.welcome-text h1 { background-color: white; border-radius: 0.5em; padding: 0.2em 1em; font-size: 5em; color: black; }
 
-img.avatar { position: absolute; top: 1%; left: 5%; border-radius: 0.5em; height: 5em; }
+.button { border-radius: 0.5em; background-color: white; border-width: 0em; padding: 0.3em 1em; font-size: 1.2em; text-align: center; color: rgba(0, 0, 0, 0.7); transform: translate(-50%, -50%); }
 
-nav { background-color: white; border-radius: 0.5em; position: absolute; top: 1%; right: 5%; margin: 0em; padding: 0.3em 0.5em; }
+.button:hover { color: black; }
+
+.scroll-button { position: absolute; top: 45%; left: 50%; }
+
+img.avatar { position: absolute; top: 1%; left: 5%; border-radius: 0.5em; height: 5em; opacity: 0.8; }
+
+nav { background-color: white; border-radius: 0.5em; position: fixed; top: 1%; right: 5%; margin: 0em; padding: 0.3em 0.5em; }
 
 nav ul { display: block; list-style: none; margin: 0em; padding: 0em; }
 
 nav li { display: inline; margin: 0em 2em; padding: 0em; font-size: 1.2em; }
 
-nav a { color: #3a3a3a; font-weight: bold; }
+nav a { color: black; opacity: 0.7; font-weight: bold; }
 
-nav a:hover { color: #000000; }
+nav a:hover { color: #000000; opacity: 1; }
 
 h1.section-title { font-size: 4em; font-weight: bold; margin: 0em; padding: 0em; }
 
