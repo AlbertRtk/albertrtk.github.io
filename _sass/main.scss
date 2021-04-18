@@ -1,34 +1,164 @@
 html, body {
-  height: 100%;
-  margin: 0px 10px 0px 10px;
+  // height: 100%;
+  margin: 0px;
   padding: 0px;
 }
 
 body {  
   font-family: Arial, Verdana, sans-serif;
-  background-color: lightslategray;
 }
 
 .wrapper {
   width: 100%;
-  float: left;
+  // float: left;
   padding: 0px 0px 0px 0px;
   margin: 0px;
   border: 0px solid #000000;
-  height: 100%;
+  // height: 100%;
   margin: 0px;
 }
 
 section {
-  width: 60%;
+  // width: 60%;
   min-width: 560px;
-  max-width: 720px;
-  padding: 10px 250px 10px 250px;
+  // max-width: 720px;
+  padding: 0px;
   float: center;
   margin: auto;
   line-height: 1.6;
 }
 
+a {
+  color:midnightblue; /*other possibility indigo*/
+  text-decoration: none;
+}
+
+a.larger {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+div {
+  padding: 1% 5%;
+}
+
+.gray-background {
+  background-color: #eeeeee;
+}
+
+div.start-background {
+  background-image: url("/assets/images/start-background.jpg");
+  background-color: #cccccc;
+  height: 900px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.attribution {
+  text-align: right;
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  font-size: x-small;
+}
+
+.welcome-text {
+  text-align: center;
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.welcome-text h1 {
+  background-color: white;
+  border-radius: 0.5em;
+  padding: 0.2em 0.5em;
+  font-size: 5em;
+  color: black}
+
+img.avatar {
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  border-radius: 0.5em;
+  height: 5em;
+}
+
+nav {
+  background-color: white;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  margin: 0em;
+  padding: 0.3em 0.5em;
+}
+
+nav ul {
+  display: block;
+  list-style: none;
+  margin: 0em;
+  padding: 0em;
+}
+
+nav li {
+  display: inline;
+  margin: 0em 2em;
+  padding: 0em;
+  font-size: 1.2em;
+}
+
+nav a {
+  color: #3a3a3a;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #000000;
+}
+
+h1.section-title {
+  font-size: 4em;
+  font-weight: bold;
+  margin: 0em;
+  padding: 0em;
+}
+
+.centered {
+  text-align: center;
+  padding: 0px 0px 0px 0px;
+  margin: 0em 0em 0em 0em;
+}
+
+.post-title {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.post-date {
+  font-size: 0.8em;
+}
+
+.post-excerpt {
+  font-size: 1em;
+  margin: 1em 0em 7em 0em;
+}
+
+footer{
+  text-align: center;
+  font-size: 1em;
+  width: 100%;
+  min-width: 560px;
+  float: center;
+  margin: auto;
+  padding: 1% 0%;
+  line-height: 1.6;
+}
+//===========================================
 h1 {
   font-size: xx-large;
   line-height: 1.25;
@@ -165,11 +295,6 @@ aside img.avatar {
   width: 200px;
   padding: 20px 0px 0px 0px;
 }
-  
-a {
-  color:midnightblue; /*other possibility indigo*/
-  text-decoration: none;
-}
 
 aside a {
   color: black;
@@ -236,18 +361,6 @@ aside .tags p {
   font-weight: bold;
   padding: 10px 0px 5px 0px;
   margin: 0px;
-}
-
-footer{
-  text-align: center;
-  font-size: small;
-  width: 60%;
-  min-width: 560px;
-  max-width: 720px;
-  padding: 10px 250px 10px 250px;
-  float: center;
-  margin: auto;
-  line-height: 1.6;
 }
 
 img.equation_gif {

@@ -2,7 +2,76 @@
 title: Home
 ---
 
-<ul class="home">
+<div class="start-background" id="start">
+
+  <img src="{{ site.avatar }}" alt="Avatar" class="avatar">
+  
+  <nav>
+    <ul>
+      <li><a href="#start">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#blog">BLOG</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <div class="welcome-text">
+    <h1>Welcome!</h1>
+  </div>
+
+  <div class="attribution">
+    Photo by <a href="https://unsplash.com/@jstrippa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Harrison</a> on <a href="https://unsplash.com/photos/vpOeXr5wmR4">Unsplash</a>
+  </div>
+
+</div>
+
+<div id="about">
+  
+  <h1 class="section-title">
+    About
+  </h1>
+
+  <p>
+    About me...
+  </p>
+
+</div>
+
+<div class="gray-background" id="blog">
+  
+  <h1 class="section-title">
+    Blog
+  </h1>
+
+  <p>
+    {% for post in site.posts limit:3 %}
+      <p class="centered post-title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
+      <p class="centered post-date">
+        {% assign author = site.authors | where: 'short_name', post.author | first %}
+        {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
+        &nbsp;|&nbsp;<a href="{{ post.url }}">Read more</a>
+      </p>
+      <p class="centered post-excerpt">{{ post.excerpt | strip_html }} </p>
+    {% endfor %}
+  </p>
+
+  <p class="centered"><a href="/blog.html" class="larger"> >>> More post <<< </a></p>
+
+</div>
+
+<div id="contact">
+  
+  <h1 class="section-title">
+    Contact
+  </h1>
+
+  <p>
+    Contact form...
+  </p>
+  
+</div>
+
+<!-- <ul class="home">
     {% for post in site.posts %}
       
       <li class="home">
@@ -13,9 +82,6 @@ title: Home
           &nbsp;|&nbsp;<a href="{{ post.url }}">Read more</a>
         </p>
         {{ post.excerpt }} 
-        <!-- <p class="read_more">
-          <a href="{{ post.url }}">Read more >></a>
-        </p> -->
         <hr />
       </li>
 
@@ -24,4 +90,4 @@ title: Home
       {% endif %}
 
     {% endfor %}
-</ul>
+</ul> -->
