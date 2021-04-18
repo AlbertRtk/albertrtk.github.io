@@ -7,21 +7,21 @@ tags: statistics
 **Covariance** - measures the correlation between two random variables.
 
 ### Sample covariance:
-![Sample variance](/assets/images/handbook/statistics/covariance_sample.gif)
+<img src="/assets/images/handbook/statistics/covariance_sample.gif" class="equation_gif" />
 
 ### Population covariance:
-![Population variance](/assets/images/handbook/statistics/covariance_population.gif)
+<img src="/assets/images/handbook/statistics/covariance_population.gif" class="equation_gif" />
 
 <br />
 
 **Correlation coefficient** - the ratio of the covariance of the two variables to the product of their [standard deviations]({% link _handbook/variance-and-standard-deviation.md %}). 
 
 ### Correlation coefficient
-![Correlation coefficient](/assets/images/handbook/statistics/correlation_coefficient.gif)
+<img src="/assets/images/handbook/statistics/correlation_coefficient.gif" class="equation_gif" />
 
 The above formula applies for both, sample and population data. 
 
-![Correlation coefficient interval](/assets/images/handbook/statistics/correlation_coefficient_interval.gif)
+<img src="/assets/images/handbook/statistics/correlation_coefficient_interval.gif" class="equation_gif" />
 
 
 <br />

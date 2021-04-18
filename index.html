@@ -10,35 +10,18 @@ title: Home
         <p class="post_date">
           {% assign author = site.authors | where: 'short_name', post.author | first %}
           {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
+          &nbsp;|&nbsp;<a href="{{ post.url }}">Read more</a>
         </p>
         {{ post.excerpt }} 
-        <p class="read_more">
+        <!-- <p class="read_more">
           <a href="{{ post.url }}">Read more >></a>
-        </p>
+        </p> -->
+        <hr />
       </li>
 
-      {% if 3 == forloop.index %}
+      {% if 5 == forloop.index %}
         {% break %}
       {% endif %}
 
     {% endfor %}
 </ul>
-
-<hr />
-
-<p class="title_middle">Tags</p>
-
-<!-- chacking tags in handbook pages -->
-{% assign handbook_tags = site.handbook | map: 'tags' | uniq %}
-{% assign handbook_tags = handbook_tags | join: "," %}
-
-{% for tag in site.tags %}
-  {% assign handbook_tags = handbook_tags | remove: tag[0] %}  <!-- removing duplicates -->
-  <a href="topics.html#{{ tag[0] }}">{{ tag[0] }} &nbsp;</a>
-{% endfor %}
-
-<!-- printing tags which appear only in handbook -->
-{% assign handbook_tags = handbook_tags | split: "," %}
-{% for tag in handbook_tags %}
-  <a href="topics.html#{{ tag }}">{{ tag }} &nbsp;</a>
-{% endfor %}

@@ -6,6 +6,7 @@ html, body {
 
 body {  
   font-family: Arial, Verdana, sans-serif;
+  background-color: lightslategray;
 }
 
 .wrapper {
@@ -37,6 +38,12 @@ section img.full_width {
   width: 100%;
 }
 
+section img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 p.post_date {
   font-size: x-small;
   padding: 0px 0px 0px 0px;
@@ -56,7 +63,7 @@ p.post_date_small {
 }
 
 p.post_title {
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: bold;
   padding: 0px 0px 0px 0px;
   margin: 0px;
@@ -94,12 +101,17 @@ li {
 
 ul.home {
   list-style: none;
-  padding: 30px 0px 20px 0px;
+  padding: 30px 0px 00px 0px;
   margin: 0px;
 }
 
+ul.home p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
 li.home {
-  padding: 0px 0px 70px 0px;
+  padding: 0px 0px 50px 0px;
 }
 
 ul.titles_list {
@@ -116,7 +128,7 @@ table.dataframe {
 }
 
 table.dataframe th {
-  background-color: grayscale($color: #dddddd);
+  background-color: slategrey;
 }
 
 table.dataframe td, th {
@@ -143,10 +155,10 @@ aside {
   height: 100%;
   padding: 10px 0px 0px 0px;
   font-size: larger;
-  border-right: 1px solid gray;
+  // border-right: 1px solid gray;
   margin: 0px;
   position: fixed;
-  background-color: white;
+  background-color: slategray;
 }
 
 aside img.avatar {
@@ -155,8 +167,12 @@ aside img.avatar {
 }
   
 a {
-  color: blue;
+  color:midnightblue; /*other possibility indigo*/
   text-decoration: none;
+}
+
+aside a {
+  color: black;
 }
 
 aside a.current {
@@ -173,14 +189,14 @@ aside ul {
 }
 
 aside li {
-  padding: 0px 0px 5px 0px;
+  padding: 5px 0px 5px 0px;
 }
 
-aside p.copyright {
-  font-size: small;
+aside .bottom {
+  width: 40%;
   position: absolute;
-  bottom: 0px;
-  padding: 0px 0px 0px 50px;
+  bottom: 25px;
+  padding: 0% 30%;
 }
 
 .table {
@@ -201,4 +217,40 @@ aside ul#social li {
 
 aside img.social {
   width: 36px;
+}
+
+aside .tags {
+  margin-top: 50px;
+  padding: 0px 20px 0px 20px;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.0;
+}
+
+aside .tags a {
+  font-size: small;
+}
+
+aside .tags p {
+  font-size: large;
+  font-weight: bold;
+  padding: 10px 0px 5px 0px;
+  margin: 0px;
+}
+
+footer{
+  text-align: center;
+  font-size: small;
+  width: 60%;
+  min-width: 560px;
+  max-width: 720px;
+  padding: 10px 250px 10px 250px;
+  float: center;
+  margin: auto;
+  line-height: 1.6;
+}
+
+img.equation_gif {
+  background-color: white;
+  padding: 5px 20px;
 }
