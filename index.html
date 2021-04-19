@@ -33,9 +33,30 @@ title: Home
     About
   </h1>
 
-  <p>
-    About me...
-  </p>
+  <div class="row">
+    <div class="column column-left">
+      <img src="assets/images/my-photo.jpg" class="portrait">
+    </div>
+    <div class="column column-right">
+
+      <p class="sub-title">Albert Ratajczak</p>
+      <p>Physicist. Programming and technology enthusiast. Fan of endurance sports.</p>
+
+      <p class="sub-sub-title">Skils & technologies</p>
+      <p class="skill">Python3</p>
+      <p class="skill">C Programming</p>
+      <p class="skill">MATLAB</p>
+      <p class="skill">PyCharm</p>
+      <p class="skill">Plastic SCM</p>
+      <p class="skill">Jira</p>
+      <!-- <p class="skill">MOVPE</p> -->
+
+      <p class="sub-sub-title">Selected projects</p>
+
+      <p class="sub-sub-title">Publications</p>
+
+    </div>
+  </div>
 
 </div>
 
@@ -45,9 +66,9 @@ title: Home
     Blog
   </h1>
 
-  <p>
+  <div>
     {% for post in site.posts limit:3 %}
-      <p class="centered post-title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
+      <p class="centered sub-title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
       <p class="centered post-date">
         {% assign author = site.authors | where: 'short_name', post.author | first %}
         {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
@@ -55,7 +76,7 @@ title: Home
       </p>
       <p class="centered post-excerpt">{{ post.excerpt | strip_html }} </p>
     {% endfor %}
-  </p>
+  </div>
 
   <p class="centered"><a href="/blog.html" class="button"> Click here for more posts </a></p>
 
