@@ -1,33 +1,45 @@
 ---
 layout: default
 ---
-<h1>
-  {% if page.category %}{{ page.category }}: {% endif %}{{ page.title }}
-</h1>
 
-{{ content }}
+<div class="post">
 
-<hr class="under_post">
-<br />
+  <h1 class="section-title">
+    {% if page.category %}{{ page.category }}: {% endif %}{{ page.title }}
+  </h1>
 
-<p class="post_date_large">
-  {{ page.date | date_to_string }}
-  {% assign author = site.authors | where: 'short_name', page.author | first %}
-  {% if author %}
-    - <a href="{{ author.url }}">{{ author.name }}</a>
-  {% endif %}
-</p>
-
-<p class="under_post"> 
-  Tags: 
-  {% for tag in page.tags %}
-    {% capture tag_name %}{{ tag }}{% endcapture %}
-    <a href="/topics.html#{{ tag_name }}">{{ tag_name }} &nbsp;</a>
-  {% endfor %} 
   <br />
 
-  {% if page.next %}
-    Next post: <a href="{{ page.next.url }}">{{ page.next.title }}</a>
-  {% endif %}
-</p>
+  {{ content }}
+
+  <hr class="under-post">
+
+  <p class="under-post-info">
+    {{ page.date | date_to_string }}
+    {% assign author = site.authors | where: 'short_name', page.author | first %}
+    {% if author %}
+      - <a href="{{ author.url }}">{{ author.name }}</a>
+    {% endif %}
+  </p>
+
+  <p class="under-post"> 
+    {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a href="/topics.html#{{ tag_name }}" class="tag">{{ tag_name }}</a>
+    {% endfor %} 
+  </p>
+
+  <!-- <p class="under-post">
+    {% if page.next %}
+      Next post: <a href="{{ page.next.url }}">{{ page.next.title }}</a>
+    {% endif %}
+  </p> -->
+
+</div>
+
+
+
+
+
+
 

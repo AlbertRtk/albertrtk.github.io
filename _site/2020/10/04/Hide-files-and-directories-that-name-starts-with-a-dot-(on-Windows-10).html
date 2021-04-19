@@ -9,12 +9,26 @@
 
   <body>
     <div class="wrapper">
-      <section>
-        <h1>
-  Hide Files And Directories That Name Starts With A Dot (on Windows 10)
-</h1>
 
-<p>On the Linux system, files and directories which name starts with a dot are often used for storing settings, etc. They are “hidden” in many file managers. The convention is often transferred  to Windows, however Windows Explorer doesn’t hide such named files and directories. Which annoyed me…
+      <nav>
+        <ul>
+          <li><a href="/#start">HOME</a></li>
+          <li><a href="/#about">ABOUT</a></li>
+          <li><a href="/#blog">BLOG</a></li>
+          <li><a href="/#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <section>
+        <div class="post">
+
+  <h1 class="section-title">
+    Hide Files And Directories That Name Starts With A Dot (on Windows 10)
+  </h1>
+
+  <br />
+
+  <p>On the Linux system, files and directories which name starts with a dot are often used for storing settings, etc. They are “hidden” in many file managers. The convention is often transferred  to Windows, however Windows Explorer doesn’t hide such named files and directories. Which annoyed me…
 <!--more--></p>
 
 <p>So, I started to search for a solution and I discovered (<a href="https://superuser.com/questions/364406/hiding-files-folders-which-begin-with-a-full-stop-period">here</a>) <code class="language-plaintext highlighter-rouge">attrib</code> command. The command is documented <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/attrib">here</a>. To hide in the Windows Explorer all files and directories which name starts with a dot and which are located in my user’s directory I used the following command</p>
@@ -50,38 +64,47 @@
 <p>If you would like the script to start with your system, press <code class="language-plaintext highlighter-rouge">Win + R</code> and run <code class="language-plaintext highlighter-rouge">shell:startup</code>. Place a shortcut to the script in the directory which opens. Ready! Next time when you will start your PC the script will run too.</p>
 
 
-<hr class="under_post">
-<br />
+  <hr class="under-post">
 
-<p class="post_date_large">
-  04 Oct 2020
-  
-  
-    - <a href="/authors/albert.html">Albert</a>
-  
-</p>
-
-<p class="under_post"> 
-  Tags: 
-  
+  <p class="under-post-info">
+    04 Oct 2020
     
-    <a href="/topics.html#task-automation">task-automation &nbsp;</a>
-  
     
-    <a href="/topics.html#windows">windows &nbsp;</a>
-   
-  <br />
+      - <a href="/authors/albert.html">Albert</a>
+    
+  </p>
 
-  
-    Next post: <a href="/2020/10/24/brute-force-attack-on-password-protected-file.html">Brute Force Attack On Password Protected File</a>
-  
-</p>
+  <p class="under-post"> 
+    
+      
+      <a href="/topics.html#task-automation" class="tag">task-automation</a>
+    
+      
+      <a href="/topics.html#windows" class="tag">windows</a>
+     
+  </p>
+
+  <!-- <p class="under-post">
+    
+      Next post: <a href="/2020/10/24/brute-force-attack-on-password-protected-file.html">Brute Force Attack On Password Protected File</a>
+    
+  </p> -->
+
+</div>
+
+
+
+
+
+
 
 
       </section>
+
       <footer class="gray-background">
         Copyright &copy; 2021 Albert Ratajczak
       </footer>
+      
     </div>
   </body>
 
