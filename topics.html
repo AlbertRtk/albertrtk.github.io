@@ -1,7 +1,9 @@
 ---
 title: Topics
 ---
-<h1>Topics</h1>
+<div class="post">
+<h1 class="section-title">Topics</h1>
+<br />
 
 <!-- chacking tags in handbook pages -->
 {% assign handbook_tags = site.handbook | map: 'tags' | uniq %}
@@ -12,11 +14,11 @@ title: Topics
   <!-- removing duplicates -->
   {% assign handbook_tags = handbook_tags | remove: tag[0] %}
 
-  <p class="title_middle" id={{ tag[0] }}>
+  <h2 id={{ tag[0] }}>
     {{ tag[0] }}
-  </p>
+  </h2>
 
-  <ul class="titles_list">
+  <ul>
     {% for post in tag[1] %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
@@ -37,11 +39,11 @@ title: Topics
 
 {% for tag in handbook_tags %}
 
-  <p class="title_middle" id={{ tag }}>
+  <h2 id={{ tag }}>
     {{ tag }}
-  </p>
+  </h2>
 
-  <ul class="titles_list">
+  <ul>
     {% for post in site.handbook %}
       {% if post.tags contains tag %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
@@ -50,3 +52,4 @@ title: Topics
   </ul>
 
 {% endfor %}
+</div>
