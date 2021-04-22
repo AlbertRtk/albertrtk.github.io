@@ -50,13 +50,13 @@ title: Home
           <p class="skill">Origin (data analysis software)</p>
       </details>
 
-      <p class="sub-sub-title">Selected projects</p>
+      <!-- <p class="sub-sub-title">Selected projects</p>
       <ul class="projects">
         <li><a href="https://albertrtk.github.io/weight_training_tracker/">Weight Training Tracker</a></li>
         <li><a href="https://github.com/AlbertRtk/running_twitter_bot">Running Twitter Bot</a></li>
         <li><a href="https://albertrtk.github.io/stock_market_insights/">Stock Market Insights</a> and <a href="https://albertrtk.github.io/marketools/">Marketools</a></li>
         <li><a href="https://github.com/AlbertRtk/albertrtk.github.io">This web page</a></li>
-      </ul>
+      </ul> -->
       
 
       <p class="sub-sub-title">Publications</p>
@@ -104,29 +104,15 @@ title: Home
     Contact
   </h1>
 
-  <p>
-    Contact form...
-  </p>
+  <div>
+    <!-- Contact Form using https://formspree.io/ -->
+    <form action="https://formspree.io/f/mgervdpq" method="POST">
+      <label for="email">Your email:</label>
+      <input class="contact" type="email" name="_replyto" id="email">
+      <label for="message">Your message:</label>
+      <textarea class="contact" name="message" id="message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
   
 </div>
-
-<!-- <ul class="home">
-    {% for post in site.posts %}
-      
-      <li class="home">
-        <p class="post_title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
-        <p class="post_date">
-          {% assign author = site.authors | where: 'short_name', post.author | first %}
-          {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
-          &nbsp;|&nbsp;<a href="{{ post.url }}">Read more</a>
-        </p>
-        {{ post.excerpt }} 
-        <hr />
-      </li>
-
-      {% if 5 == forloop.index %}
-        {% break %}
-      {% endif %}
-
-    {% endfor %}
-</ul> -->
