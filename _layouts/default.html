@@ -9,14 +9,27 @@
 
   <body>
     <div class="wrapper">
-      {% include aside.html %}
+
+      <nav>
+        <details >
+          <summary></summary>  
+          <ul>
+            <li><a href="/#start">HOME</a></li>
+            <li><a href="/#about">ABOUT</a></li>
+            <li><a href="/#blog">BLOG</a></li>
+            <li><a href="/#contact">CONTACT</a></li>
+          </ul>
+        </details>
+      </nav>
+
       <section>
         {{ content }}
       </section>
-      <footer>
-        <hr />
+
+      <footer class="gray-background">
         Copyright &copy; 2021 Albert Ratajczak
       </footer>
+      
     </div>
   </body>
 

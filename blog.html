@@ -1,11 +1,32 @@
 ---
 title: Blog
 ---
-<h1>Blog posts</h1>
+
+<div class="gray-background">
+  
+  <h1 class="section-title">
+    Blog
+  </h1>
+
+  <div>
+    {% for post in site.posts %}
+      <p class="centered sub-title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
+      <p class="centered post-date">
+        {% assign author = site.authors | where: 'short_name', post.author | first %}
+        {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
+        &nbsp;|&nbsp;<a href="{{ post.url }}">Read more</a>
+      </p>
+      <p class="centered post-excerpt">{{ post.excerpt | strip_html }} </p>
+    {% endfor %}
+  </div>
+
+</div>
+
+<!-- <h1>Blog posts</h1>
 
 {% assign post_month = "-" %}
 
-<ul class="titles_list"> <!-- dummy ul for closing tag sitting in unless -->
+<ul class="titles_list"> dummy ul for closing tag sitting in unless
 
 {% for post in site.posts %}
   {% unless post.category %}
@@ -14,7 +35,7 @@ title: Blog
     
     {% unless next_post_month contains post_month %}
       {% assign post_month = next_post_month %}
-      </ul> <!-- closing previous ul tag (dummy in the first call) -->
+      </ul> closing previous ul tag (dummy in the first call)
       <p class="title_middle">
         {{ post_month }}
       </p>
@@ -26,4 +47,4 @@ title: Blog
   {% endunless %}  
 {% endfor %}
 
-</ul>
+</ul> -->

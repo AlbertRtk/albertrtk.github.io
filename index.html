@@ -2,26 +2,117 @@
 title: Home
 ---
 
-<ul class="home">
-    {% for post in site.posts %}
+<div class="start-background" id="start">
+
+  <img src="{{ site.avatar }}" alt="Avatar" class="avatar">
+
+  <div class="welcome-text">
+    <h1>Welcome!</h1>
+  </div>
+
+  <a href="#about" class="button scroll-button">Scroll down</a>
+
+  <div class="attribution">
+    Photo by <a href="https://unsplash.com/@jstrippa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Harrison</a> on <a href="https://unsplash.com/photos/vpOeXr5wmR4">Unsplash</a>
+  </div>
+
+</div>
+
+<div id="about">
+  
+  <h1 class="section-title">
+    About
+  </h1>
+
+  <div class="row">
+    <div class="column column-left">
+      <img src="assets/images/my-photo.jpg" class="portrait">
+    </div>
+    <div class="column column-right">
+
+      <p class="sub-title">Albert Ratajczak</p>
+      <p>Physicist. Programming and technology enthusiast. Fan of endurance sports.</p>
+
+      <p class="sub-sub-title">Skils & Technologies</p>
+      <p class="skill">Python3</p>
+      <p class="skill">C Programming</p>
+      <p class="skill">MATLAB</p>
+      <details>
+        <summary>Other I've worked with</summary>
+          <p class="skill">Plastic SCM</p>
+          <p class="skill">Jira</p>
+          <p class="skill">Advanced Driver-Assistance Systems (ADAS)</p>
+          <p class="skill">HTML</p>
+          <p class="skill">CSS</p>
+          <br />
+          <p class="skill">MOVPE</p>
+          <p class="skill">Scanning Electron Microscopy (SEM)</p>
+          <p class="skill">Origin (data analysis software)</p>
+      </details>
+
+      <!-- <p class="sub-sub-title">Selected projects</p>
+      <ul class="projects">
+        <li><a href="https://albertrtk.github.io/weight_training_tracker/">Weight Training Tracker</a></li>
+        <li><a href="https://github.com/AlbertRtk/running_twitter_bot">Running Twitter Bot</a></li>
+        <li><a href="https://albertrtk.github.io/stock_market_insights/">Stock Market Insights</a> and <a href="https://albertrtk.github.io/marketools/">Marketools</a></li>
+        <li><a href="https://github.com/AlbertRtk/albertrtk.github.io">This web page</a></li>
+      </ul> -->
       
-      <li class="home">
-        <p class="post_title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
-        <p class="post_date">
-          {% assign author = site.authors | where: 'short_name', post.author | first %}
-          {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
-          &nbsp;|&nbsp;<a href="{{ post.url }}">Read more</a>
-        </p>
-        {{ post.excerpt }} 
-        <!-- <p class="read_more">
-          <a href="{{ post.url }}">Read more >></a>
-        </p> -->
-        <hr />
-      </li>
 
-      {% if 5 == forloop.index %}
-        {% break %}
-      {% endif %}
+      <p class="sub-sub-title">Publications</p>
+      <ul class="projects">
+        <li>A. Ratajczak, <i>Metal-organic vapor phase epitaxy and characterization of phase-change alloys in the Ge-Sb-Te material system</i>, Dissertation, RWTH Aachen University, 2020 [<a href="https://publications.rwth-aachen.de/record/792806">link</a>]</li>
+        <li>A. Ratajczak et al., <i>Metal organic vapor phase epitaxy of Ge1Sb2Te4 thin films on Si(111) substrate</i>, Appl. Phys. A 125 (2019), 163 [<a href="https://link.springer.com/article/10.1007/s00339-019-2465-4">link</a>]</li>
+        <li>A. Ratajczak, <i>Laser azotowy</i>, Foton 103 (2008), 52 [<a href="http://www.foton.if.uj.edu.pl/documents/12579485/37ff0591-386c-44da-999b-084d3c6e8963">link</a>]</li>
+      </ul>
 
+      <p class="sub-sub-title">Social media</p>
+      <a href="https://www.linkedin.com/in/albert-ratajczak-1ab95557/" class="social">LinkedIn</a>
+      <a href="https://twitter.com/AlbertRtk_" class="social">Twitter</a>
+      <a href="https://github.com/AlbertRtk" class="social">GitHub</a>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="gray-background" id="blog">
+  
+  <h1 class="section-title">
+    Blog
+  </h1>
+
+  <div>
+    {% for post in site.posts limit:3 %}
+      <p class="centered sub-title"><a href="{{ post.url }}" class="black_link">{{ post.title }}</a></p>
+      <p class="centered post-date">
+        {% assign author = site.authors | where: 'short_name', post.author | first %}
+        {{ post.date | date_to_string }}{% if author %}, by <a href="{{ author.url }}">{{ author.name }}</a>{% endif %}
+        &nbsp;|&nbsp;<a href="{{ post.url }}">Read more</a>
+      </p>
+      <p class="centered post-excerpt">{{ post.excerpt | strip_html }} </p>
     {% endfor %}
-</ul>
+  </div>
+
+  <p class="centered"><a href="/blog.html" class="button"> Click here for more posts </a></p>
+
+</div>
+
+<div id="contact">
+  
+  <h1 class="section-title">
+    Contact
+  </h1>
+
+  <div>
+    <!-- Contact Form using https://formspree.io/ -->
+    <form action="https://formspree.io/f/mgervdpq" method="POST">
+      <label for="email">Your email:</label>
+      <input class="contact" type="email" name="_replyto" id="email">
+      <label for="message">Your message:</label>
+      <textarea class="contact" name="message" id="message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  
+</div>

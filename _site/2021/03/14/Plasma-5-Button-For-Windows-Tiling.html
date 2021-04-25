@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Plasma 5: Button For Windows Tiling - AlbertRtk</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <nav>
+        <details >
+          <summary></summary>  
+          <ul>
+            <li><a href="/#start">HOME</a></li>
+            <li><a href="/#about">ABOUT</a></li>
+            <li><a href="/#blog">BLOG</a></li>
+            <li><a href="/#contact">CONTACT</a></li>
+          </ul>
+        </details>
+      </nav>
+
+      <section>
+        <div class="post">
+
+  <h1 class="section-title">
+    Plasma 5: Button For Windows Tiling
+  </h1>
+
+  <br />
+
+  <p>Instructions how to add to KDE Plasma 5 panel a button for toggling of windows tiling.
+<!--more--></p>
+
+<h2 id="pre-requirements">Pre-requirements</h2>
+<ol>
+  <li>PC running Kubuntu (or other distro with KDE Plasma 5)</li>
+  <li>KWin extension Kröhnkite: <a href="https://github.com/esjeon/krohnkite">https://github.com/esjeon/krohnkite</a></li>
+  <li>Plasma applet Command Output: <a href="https://github.com/Zren/plasma-applet-commandoutput">https://github.com/Zren/plasma-applet-commandoutput</a></li>
+</ol>
+
+<h2 id="bash-scripts">Bash scripts</h2>
+
+<h3 id="krohnstatus">krohnstatus</h3>
+<p>Script to check whether Kröhnkite script is enabled or not.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># ---------------------------------------------------------------------- #</span>
+<span class="c"># Script checks and prints Krohnkite KWin script status (enable/disable) #</span>
+<span class="c"># ---------------------------------------------------------------------- #</span>
+
+<span class="c"># check if script is active</span>
+<span class="nv">krohnkite_status</span><span class="o">=</span><span class="sb">`</span><span class="nb">cat</span> ~/.config/kwinrc | <span class="nb">grep </span><span class="nv">krohnkiteEnabled</span><span class="o">=</span> | rev | <span class="nb">cut</span> <span class="nt">-d</span><span class="s2">"="</span> <span class="nt">-f1</span> | rev<span class="sb">`</span>
+
+<span class="c"># output status</span>
+<span class="k">if</span> <span class="nv">$krohnkite_status</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"|T|"</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"|F|"</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<h3 id="krohntoggler">krohntoggler</h3>
+<p>Script to toggle (activate/deactivate) Kröhnkite script.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># ------------------------------------------------------------ #</span>
+<span class="c"># Script toggles Krohnkite KWin script status (enable/disable) #</span>
+<span class="c"># ------------------------------------------------------------ #</span>
+
+<span class="c"># check if script is active</span>
+<span class="nv">krohnkite_status</span><span class="o">=</span><span class="sb">`</span><span class="nb">cat</span> ~/.config/kwinrc | <span class="nb">grep </span><span class="nv">krohnkiteEnabled</span><span class="o">=</span> | rev | <span class="nb">cut</span> <span class="nt">-d</span><span class="s2">"="</span> <span class="nt">-f1</span> | rev<span class="sb">`</span>
+
+<span class="c"># select new status</span>
+<span class="k">if</span> <span class="nv">$krohnkite_status</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">new_status</span><span class="o">=</span><span class="nb">false
+</span><span class="k">else
+    </span><span class="nv">new_status</span><span class="o">=</span><span class="nb">true
+</span><span class="k">fi</span>
+
+<span class="c"># toggle script status</span>
+kwriteconfig5 <span class="nt">--file</span> kwinrc <span class="nt">--group</span> Plugins <span class="nt">--key</span> krohnkiteEnabled <span class="nv">$new_status</span>
+qdbus org.kde.KWin /KWin reconfigure
+</code></pre></div></div>
+
+<h2 id="config">Config</h2>
+<ol>
+  <li>You can download the scripts from my <a href="https://github.com/AlbertRtk/my_bash_scripts">GitHub</a></li>
+  <li>Place them in a directory, e.g. <code class="language-plaintext highlighter-rouge">~/bin</code>. If it’s not, add the directory to the path
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/bin
+</code></pre></div>    </div>
+  </li>
+  <li>Make sure the files are executable
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x krohnstatus krohntoggler
+</code></pre></div>    </div>
+  </li>
+  <li>Add Commend Output Applet to your Plasma Desktop/Panel. Right click on the applet and select <code class="language-plaintext highlighter-rouge">Configure Command Output...</code></li>
+  <li>In the input field under <em>Command</em> type <code class="language-plaintext highlighter-rouge">krohnstatus</code>, and in the input field under <em>Click</em> type <code class="language-plaintext highlighter-rouge">krohntoggler</code></li>
+</ol>
+
+<p><img class="center" width="400px" src="/assets/images/blog/2021-03-14/krohnkite_config.png" alt="Krohnkite config" /></p>
+
+<p>Done! If you want you can play with other options and configure it according to your needs. Now you can toggle tiling manager with one click. Created button will display <code class="language-plaintext highlighter-rouge">|T|</code> if tiling is active, and <code class="language-plaintext highlighter-rouge">|F|</code> when the script is disabled and windows are in floating mode.</p>
+
+
+  <hr class="under-post">
+
+  <p class="under-post-info">
+    14 Mar 2021
+    
+    
+      - <a href="/authors/albert.html">Albert</a>
+    
+  </p>
+
+  <p class="under-post"> 
+    
+      
+      <a href="/topics.html#linux" class="tag">linux</a>
+    
+      
+      <a href="/topics.html#kde-plasma" class="tag">kde-plasma</a>
+     
+  </p>
+
+  <!-- <p class="under-post">
+    
+  </p> -->
+
+</div>
+
+
+
+
+
+
+
+
+      </section>
+
+      <footer class="gray-background">
+        Copyright &copy; 2021 Albert Ratajczak
+      </footer>
+      
+    </div>
+  </body>
+
+</html>
